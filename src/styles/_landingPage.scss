@@ -1,0 +1,199 @@
+.showcase-container {
+  margin: auto;
+  max-width: 1100px;
+  padding: 0 10px;
+}
+
+.showcase-content {
+  text-align: center;
+  padding-top: 120px;
+  position: relative;
+}
+
+.showcase-content h1 {
+  font-size: 45px;
+  z-index: 10;
+  line-height: 1.2em;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.showcase-h1 {
+  color: $color-primary;
+  z-index: 10;
+}
+.showcase-h3 {
+  font-weight: bold;
+  color: white;
+  margin-bottom: 40px;
+}
+.future {
+  color: $color-primary;
+  font-weight: bold;
+  font-size: 30px;
+}
+.showcase-content a {
+  text-decoration: none;
+  padding: 12px 16px;
+  color: black;
+  font-family: cursive;
+  background: $color-primary;
+  margin-top: 5%;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.showcase-content a:hover {
+  background-color: rgb(36, 110, 76);
+  color: whitesmoke;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#landing-info {
+  height: 400px;
+  display: flex;
+}
+#landing-info .info-img {
+  flex: 1;
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQkpc8hmSNAAUYxmexlACLLW8SvuFfZeM3x9KqbLr3mc_Emf43p&amp;usqp=CAU');
+  /* background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQLwfTJ1PeJ0n-D85TP88dLzkdcyomXkze-NRgUuR-usUMrfrZh&amp;usqp=CAU") no-repeat; */
+  min-height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover cover;
+  /* background-size: 550px; */
+}
+
+#landing-info .info-img {
+  flex: 1;
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQkpc8hmSNAAUYxmexlACLLW8SvuFfZeM3x9KqbLr3mc_Emf43p&amp;usqp=CAU');
+  /* background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQLwfTJ1PeJ0n-D85TP88dLzkdcyomXkze-NRgUuR-usUMrfrZh&amp;usqp=CAU") no-repeat; */
+  min-height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-size: 550px; */
+}
+#landing-info .info-content {
+  flex: 1;
+  min-height: 75%;
+  text-align: center;
+  padding: 50px 30px;
+  overflow: hidden;
+  background: rgb(75, 74, 74);
+}
+#landing-info .info-content h2 {
+  color: whitesmoke;
+  font-size: 50px;
+}
+#landing-info .info-content h5 {
+  color: whitesmoke;
+  font-size: 16px;
+}
+#landing-test {
+  min-height: 520px;
+  margin: auto;
+  padding-top: 20px;
+
+  opacity: 70%;
+  background: whitesmoke;
+  /* background:url("https://previews.123rf.com/images/lianella/lianella1609/lianella160900012/62017934-forest-game-background-for-game-application-vector-design-tileable-horizontally-with-parallax-effect.jpg") no-repeat center center/cover; */
+}
+#landing-test .testimonial img {
+  float: left;
+  max-width: 100px;
+  border-radius: 50%;
+  padding-left: 10px;
+  height: 100px;
+}
+#landing-test .testimonial h2 {
+  text-align: left;
+  padding-left: 10px;
+  color: whitesmoke;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#landing-test .testimonial h4,
+h5 {
+  color: whitesmoke;
+  font-family: cursive;
+  justify-content: center;
+}
+#landing-test .testimonial {
+  background: black;
+  max-width: 50%;
+  text-align: center;
+  margin-left: 25%;
+  min-height: 170px;
+  border-radius: 25px;
+  margin: auto;
+}
+
+#landing-test .test-content h1 {
+  color: black;
+  font-size: 40px;
+  font-weight: bolder;
+}
+@media (max-width: 768px) {
+  #features {
+    flex-direction: column;
+  }
+  #landing-info {
+    flex: 100%;
+    max-width: 100%;
+  }
+  #landing-info .info-img {
+    background-image: cover;
+  }
+
+  .landingpage-navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  .landingpage-navbar a {
+    flex: 1;
+    text-decoration: none;
+  }
+}
+
+#features {
+  display: flex;
+}
+#features .box {
+  padding-top: 15px;
+  flex: 1;
+  text-align: center;
+  background: rgb(75, 74, 74);
+  border-right: solid;
+  min-height: 250px;
+}
+
+#features .box img {
+  height: 150px;
+  width: 150px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+}
+#features.box-2 {
+  background-color: tomato;
+}
+#features .box h3 {
+  color: $color-primary;
+  font-weight: bolder;
+  font-size: 25px;
+}
+.fa {
+  padding: 15px;
+  background: green;
+  border-radius: 50%;
+  color: whitesmoke;
+  font-size: 20px;
+  padding-top: 10px;
+  width: 100px;
+}
+.landingpagesteps {
+  margin-left: 50%;
+}
