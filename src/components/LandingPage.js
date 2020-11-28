@@ -8,8 +8,8 @@ import NavbarTwo from './LandingPageNavBar';
 function Landing() {
   return (
     <div>
-      <NavbarTwo />
       <div className='wrapper'>
+        <NavbarTwo />
         <div className='showcase-container'>
           <div className='showcase-content'>
             <h1>
