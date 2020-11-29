@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
-const NavbarTwo = () => {
+const LandingPageNavbar = () => {
   return (
     <div className="navbar-main">
       <h1 className="navbar-logo">
@@ -42,4 +42,4 @@ const NavbarTwo = () => {
     </div>
   );
 };
-export default NavbarTwo;
+export default LandingPageNavbar;

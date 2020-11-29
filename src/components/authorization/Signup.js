@@ -27,45 +27,45 @@ function SignUp() {
   };
 
   return (
-    <div className='registerimage'>
-      <div className='register-container'></div>
-      <div className='register'>
+    <div className="registerimage">
+      <div className="register-container"></div>
+      <div className="register">
         <h3> Register</h3>
-        <label for='first'> First Name</label> <br />
+        <label for="first"> First Name</label> <br />
         <input
-          type='text'
-          id='first'
-          placeholder=' John'
+          type="text"
+          id="first"
+          placeholder=" John"
           onChange={(e) => setFirstName(e.target.value)}
         />
         <br />
-        <label for='last'> Last Name</label> <br />
+        <label for="last"> Last Name</label> <br />
         <input
-          type='text'
-          id='last'
-          placeholder=' Doe'
+          type="text"
+          id="last"
+          placeholder=" Doe"
           onChange={(e) => setLastName(e.target.value)}
         />{' '}
         <br />
-        <label for='email'> Email</label> <br />
+        <label for="email"> Email</label> <br />
         <input
-          type='text'
-          id='email'
-          placeholder=' John.Doe@gmail.com'
+          type="text"
+          id="email"
+          placeholder=" John.Doe@gmail.com"
           onChange={(e) => setInputEmail(e.target.value)}
         />{' '}
         <br />
-        <label for='pass'> Password</label> <br />
+        <label for="pass"> Password</label> <br />
         <input
-          type='password'
-          id='pass'
-          placeholder=' xxxxxxxx'
+          type="password"
+          id="pass"
+          placeholder=" xxxxxxxx"
           onChange={(e) => setInputPassword(e.target.value)}
         />{' '}
         <br />
         <button onClick={(e) => sendData()}> Register</button> <br />
         <p> Already have an account?</p>
-        <a link href='login' as={RouterLink}>
+        <a link href="login" as={RouterLink}>
           {' '}
           Log in Here
         </a>

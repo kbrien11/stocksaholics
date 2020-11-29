@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import Navbar from './Navbar';
 import Stocks from './Stocks';
-import Tracking from './tracking';
+import Tracking from './Tracking';
 
 import Portfolio from './Portfolio';
 import Trades from './HomeTrades';
-import HomeHist from './homeHistory';
+import HomeHistory from './HomeHistory';
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -118,31 +118,31 @@ const Home = () => {
     <div>
       <Navbar />
 
-      <div class='deposit'>
+      <div class="deposit">
         <p> Would you like to deposit money into your account?</p>
 
         <input
-          placeholder='amount'
-          type='text'
+          placeholder="amount"
+          type="text"
           value={inputAmount}
           onChange={(e) => setAmount(e.target.value)}
         />
 
-        <button type='button' onClick={(e) => deposit()}>
+        <button type="button" onClick={(e) => deposit()}>
           {' '}
           Increase
         </button>
         {inputdeposit && <p> successfully addded!</p>}
       </div>
-      <div class='homebalance'>
+      <div class="homebalance">
         <h2> USD Balance</h2>
-        <hr color='black'></hr>
+        <hr color="black"></hr>
 
         <p>{'$' + dataBalance}</p>
       </div>
-      <div class='homebalance'>
+      <div class="homebalance">
         <h2> Total Equity</h2>
-        <hr color='black'></hr>
+        <hr color="black"></hr>
         <p>{'$' + datas + ''}</p>
       </div>
 
@@ -153,12 +153,12 @@ const Home = () => {
       {/* <div class = 'othercontainer'>
     <div class ='homeh3'> */}
       {output.length > 0 && (
-        <div class='grid'>
+        <div class="grid">
           {output.length > 0 && <h3> Tracking: {output.length}</h3>}
           {output.length > 0 && <hr></hr>}
 
           {/* <div class = 'trackeroutput'> */}
-          <div class='nested'>{output}</div>
+          <div class="nested">{output}</div>
         </div>
       )}
 
@@ -172,12 +172,12 @@ const Home = () => {
       {/* <div class = 'homeColumn'>  */}
       {/* <div class = 'homeWrapper'> */}
 
-      <div class='homeRow'>
-        <div class='homeColumn'>
-          <HomeHist />
+      <div class="homeRow">
+        <div class="homeColumn">
+          <HomeHistory />
         </div>
 
-        <div class='homeColumn'>
+        <div class="homeColumn">
           <Portfolio />
         </div>
       </div>

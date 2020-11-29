@@ -53,16 +53,16 @@ const Pos = (props) => {
   const equity_amount_rounded = equity_amount.toLocaleString();
 
   return (
-    <div class='table-box'>
-      <div class='table-row'>
-        <div class='table-cell'>
-          <div class='homePositions'>
+    <div class="table-box">
+      <div class="table-row">
+        <div class="table-cell">
+          <div class="homePositions">
             {image && (
               <img
-                className='position-logo'
+                className="position-logo"
                 src={image}
-                width='30'
-                height='50'
+                width="30"
+                height="50"
               ></img>
             )}
             <h2> {props.position[0]}</h2>

@@ -160,7 +160,7 @@ const Stocks = () => {
   };
 
   console.log(shares);
-  const companyLogo = <img className='stock-logo' src={image}></img>;
+  const companyLogo = <img className="stock-logo" src={image}></img>;
 
   const currentBalance = balance.toLocaleString();
 
@@ -169,10 +169,10 @@ const Stocks = () => {
   return (
     <div>
       <Navbar />
-      <div className='stock-page-balance'>{currentBalance}</div>
-      <div class='rowTwo'>
+      <div className="stock-page-balance">{currentBalance}</div>
+      <div class="rowTwo">
         {output.length > 0 && (
-          <div class='otherColumn'>
+          <div class="otherColumn">
             <Plot
               data={[
                 {
@@ -191,15 +191,15 @@ const Stocks = () => {
             />
           </div>
         )}
-        <div class='otherColumn'>
+        <div class="otherColumn">
           <input
-            type='text'
-            placeholder='Ticker...'
+            type="text"
+            placeholder="Ticker..."
             value={inputTicker}
             onChange={(e) => setInputTicker(e.target.value)}
           />{' '}
           <br />
-          <button type='button' onClick={(e) => StockPrice()}>
+          <button type="button" onClick={(e) => StockPrice()}>
             {' '}
             Search
           </button>
@@ -215,39 +215,39 @@ const Stocks = () => {
           )}
           {image && (
             <img
-              className='stock-logo'
+              className="stock-logo"
               src={image}
-              width='200'
-              height='300'
+              width="200"
+              height="300"
             ></img>
           )}
         </div>
       </div>
-      <div className='news-container'>
+      <div className="news-container">
         {relatedCompanies.length > 0 && <h3> Recent news</h3>}
-        <div className='news'>
+        <div className="news">
           {relatedCompanies.length > 0 && relatedCompanies}
         </div>
       </div>
 
       {output.length > 0 && (
-        <div class='bodypurshase'>
-          <div class='purchase'>
+        <div class="bodypurshase">
+          <div class="purchase">
             {output.length > 0 && (
-              <button type='button' onClick={(e) => Buy()}>
+              <button type="button" onClick={(e) => Buy()}>
                 {' '}
                 Buy {data[1]}?
               </button>
             )}
 
             {output.length > 0 && (
-              <button type='button' onClick={(e) => Sell()}>
+              <button type="button" onClick={(e) => Sell()}>
                 {' '}
                 Sell {data[1]}?
               </button>
             )}
           </div>
-          <div class='purchase'>
+          <div class="purchase">
             {nsf && <p>Insufficient funds !!</p>}
             {noShares && <p> Not enough shares</p>}
           </div>
@@ -258,38 +258,38 @@ const Stocks = () => {
           )}
           {output.length > 0 && (
             <input
-              type='text'
-              placeholder=' 0'
+              type="text"
+              placeholder=" 0"
               value={inputAmount}
               onChange={(e) => setInputAmount(e.target.value)}
             />
           )}{' '}
           <br />
           <div>{buy && <h4> You have {'$' + currentBalance} to spend</h4>}</div>
-          <div class='shares'>
+          <div class="shares">
             {buy && (
               <h4>
                 You can purshase up to {total_updated} shares of {inputTicker}
               </h4>
             )}
           </div>
-          <div class='numshares'>
+          <div class="numshares">
             {sell && (
               <p>
                 You can sell up to {shares} shares of {inputTicker}
               </p>
             )}
           </div>
-          <div class='purchase'>
-            <div class='confirm'>
+          <div class="purchase">
+            <div class="confirm">
               {buy && (
-                <button type='button' onClick={(e) => confirmBuy()}>
+                <button type="button" onClick={(e) => confirmBuy()}>
                   {' '}
                   Confirm purchase
                 </button>
               )}
               {sell && (
-                <button type='button' onClick={(e) => confirmSell()}>
+                <button type="button" onClick={(e) => confirmSell()}>
                   {' '}
                   Confirm Sell
                 </button>
@@ -304,9 +304,9 @@ const Stocks = () => {
           </div>
         </div>
       )}
-      <div class='trackbutton'>
+      <div class="trackbutton">
         {output.length > 0 && (
-          <button type='button' onClick={(e) => track()}>
+          <button type="button" onClick={(e) => track()}>
             {' '}
             Track {data[1]}
           </button>
@@ -314,37 +314,37 @@ const Stocks = () => {
         <br />
       </div>
 
-      <div class='news'>
+      <div class="news">
         {output.length > 0 && <h3>About </h3>} <br />
         {news.length > 0 && <p>{news[0]}</p>}
         {/* {isError && <p> No Description</p>} */}
         {news.length > 0 && <hr></hr>}
       </div>
 
-      <div class='row'>
-        <div class='column'>
+      <div class="row">
+        <div class="column">
           {output.length > 0 && <h4> CEO </h4>}
           {output.length > 0 && <p> {news[1]}</p>}
         </div>
 
-        <div class='column'>
+        <div class="column">
           {output.length > 0 && <h4> Employees </h4>}
           {output.length > 0 && <p> {news[2]}</p>}
         </div>
 
-        <div class='column'>
+        <div class="column">
           {output.length > 0 && <h4> Industry </h4>}
           {output.length > 0 && <p> {news[3]}</p>}
         </div>
-        <div class='column'>
+        <div class="column">
           {output.length > 0 && <h4> HeadQuarters </h4>}
           {output.length > 0 && <p> {(news[5], news[4])}</p>}
         </div>
-        <div class='column'>
+        <div class="column">
           {output.length > 0 && <h4> peRatio </h4>}
           {output.length > 0 && <p> {data[3]}</p>}
         </div>
-        <div class='column'>
+        <div class="column">
           {output.length > 0 && <h4> Market Cap </h4>}
           {output.length > 0 && <p> {data[4]}</p>}
         </div>

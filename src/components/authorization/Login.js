@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Home from './Home';
+import Home from '../Home';
 import { useHistory } from 'react-router-dom';
 
 const Login = () => {
@@ -37,31 +37,31 @@ const Login = () => {
   };
 
   return (
-    <div className='login-split-right'>
-      <div className='loginwrapper'>
-        <div className='login-name'>
-          <span className='loginwrapper-h1'> Stocks</span>aholics
+    <div className="login-split-right">
+      <div className="loginwrapper">
+        <div className="login-name">
+          <span className="loginwrapper-h1"> Stocks</span>aholics
         </div>
       </div>
       {token ? (
         <Home />
       ) : (
-        <div className='login'>
+        <div className="login">
           <h3> Login</h3>
           {isError && <h5> Incorrect Email or password, please try again</h5>}
-          <label for='email'> Email</label> <br />
+          <label for="email"> Email</label> <br />
           <input
-            type='text'
-            id='email'
-            placeholder=' John.Doe@gmail.com'
+            type="text"
+            id="email"
+            placeholder=" John.Doe@gmail.com"
             onChange={(e) => setInputEmail(e.target.value)}
           />{' '}
           <br />
-          <label for='pass'> Password</label> <br />
+          <label for="pass"> Password</label> <br />
           <input
-            type='password'
-            id='pass'
-            placeholder=' xxxxxxxxxxxxxx'
+            type="password"
+            id="pass"
+            placeholder=" xxxxxxxxxxxxxx"
             onChange={(e) => setInputPassword(e.target.value)}
           />{' '}
           <br />

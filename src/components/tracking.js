@@ -6,12 +6,9 @@ const Tracking = (props) => {
   const [data, setData] = useState([]);
   const [low, setLow] = useState([]);
   const [recco, setRec] = useState('');
-
   const [ratio, setRatio] = useState([]);
   const [change, setChange] = useState('');
   const [yearChange, setYearChange] = useState([]);
-  // const[dates,setDates] = useState([])
-  // const[price,setPrice] = useState([])
 
   useEffect(() => {
     StockPrice();
@@ -20,7 +17,6 @@ const Tracking = (props) => {
     Reccomendation();
   }, []);
 
-  // useEffect(() => {sendDataTwo()},[])
   const StockPrice = async () => {
     try {
       const response = await fetch(
@@ -72,27 +68,21 @@ const Tracking = (props) => {
   const lowSep = low.toLocaleString();
   console.log(change);
   return (
-    //  <div class = 'container'>
-    <div class='rowss'>
-      <div class='colum'>
-        <div class='cards'>
+    <div class="rowss">
+      <div class="colum">
+        <div class="cards">
           <h2>{props.data[0]}</h2>
-          <hr color='black'></hr>
+          <hr color="black"></hr>
           <h5> 24HR Change</h5>
-          {/* <h4 style =  {change < 0 ? {color:'red'}:{color:'green'}} ></h4> */}
-          {/* <h4 style = {color:updateColor(change)}></h4>  */}
           <h4> {change > 0 ? '+' + change : change}</h4>
           <h4>{recco}</h4>
           <h3> {'$' + price}</h3>
           <p> Week52high: {'$' + separator}</p>
-          {/* Week52high: <NumberFormat value = {data} displayType={'text'} thousandSeparator={true} prefix={'$'} decimalScale ={true} />  */}
           <p> Week52low: {'$' + lowSep}</p>
           <p> P/E Ratio: {ratio}</p>
-          {/* <p> YTD%Change: {yearChange.toFixed(2)}</p> */}
         </div>
       </div>
     </div>
-    // </div>
   );
 };
 export default Tracking;
