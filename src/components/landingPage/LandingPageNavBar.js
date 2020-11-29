@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const LandingPageNavbar = () => {
   return (
@@ -9,34 +9,18 @@ const LandingPageNavbar = () => {
       </h1>
       <nav>
         <ul>
-          <li>
-            {' '}
-            <a href="/signup" as={RouterLink}>
-              {' '}
-              Register{' '}
-            </a>
-          </li>
-          <li>
-            {' '}
-            <a href="/login" as={RouterLink}>
-              {' '}
-              Login{' '}
-            </a>
-          </li>
-          <li>
-            {' '}
-            <a href="/about" as={RouterLink}>
-              {' '}
-              About{' '}
-            </a>
-          </li>
-          <li>
-            {' '}
-            <a href="/contact" as={RouterLink}>
-              {' '}
-              Contact{' '}
-            </a>
-          </li>
+          <Link to="/signup">
+            <li>Sign Up</li>
+          </Link>
+          <Link to="/login">
+            <li>Login</li>
+          </Link>
+          <Link to="/about">
+            <li>About</li>
+          </Link>
+          <Link to="/contact">
+            <li>Contact</li>
+          </Link>
         </ul>
       </nav>
     </div>

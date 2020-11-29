@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import Trades from './HomeTrades';
 
 const HomeHistory = () => {
@@ -27,4 +26,5 @@ const HomeHistory = () => {
 
   return <div>{limit_trades}</div>;
 };
+
 export default HomeHistory;

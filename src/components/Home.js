@@ -1,12 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-
-import Navbar from './Navbar';
-import Stocks from './Stocks';
-import Tracking from './Tracking';
-
-import Portfolio from './Portfolio';
-import Trades from './HomeTrades';
-import HomeHistory from './HomeHistory';
+import React, { useState, useEffect } from 'react';
+import { HomeHistory, Navbar, Portfolio, Tracking, Trades } from './index';
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -26,7 +19,6 @@ const Home = () => {
   useEffect(() => {
     Equity();
   }, []);
-  // useEffect(() => {Trade()},[])
 
   const balance = async () => {
     try {
@@ -39,19 +31,6 @@ const Home = () => {
       console.log(error);
     }
   };
-
-  // const Trade = async() =>{
-
-  //   try{
-  //       const response = await fetch(`http://127.0.0.1:5000/api/${token}/recent`);
-  //       const res = await response.json();
-  //       setTrades(res.trades)
-  //       console.log(res.trades)
-
-  //     } catch(error) {
-  //       console.log(error)
-  //     }
-  //     };
 
   const Equity = async () => {
     try {
@@ -113,21 +92,17 @@ const Home = () => {
   };
 
   const dataBalance = data.toLocaleString();
-
   return (
     <div>
       <Navbar />
-
       <div class="deposit">
         <p> Would you like to deposit money into your account?</p>
-
         <input
           placeholder="amount"
           type="text"
           value={inputAmount}
           onChange={(e) => setAmount(e.target.value)}
         />
-
         <button type="button" onClick={(e) => deposit()}>
           {' '}
           Increase
@@ -137,7 +112,6 @@ const Home = () => {
       <div class="homebalance">
         <h2> USD Balance</h2>
         <hr color="black"></hr>
-
         <p>{'$' + dataBalance}</p>
       </div>
       <div class="homebalance">
@@ -145,38 +119,18 @@ const Home = () => {
         <hr color="black"></hr>
         <p>{'$' + datas + ''}</p>
       </div>
-
-      {/* <div>
-
-  
-   </div> */}
-      {/* <div class = 'othercontainer'>
-    <div class ='homeh3'> */}
       {output.length > 0 && (
         <div class="grid">
           {output.length > 0 && <h3> Tracking: {output.length}</h3>}
           {output.length > 0 && <hr></hr>}
-
-          {/* <div class = 'trackeroutput'> */}
           <div class="nested">{output}</div>
         </div>
       )}
-
       {output.length > 0 && <hr></hr>}
-
-      {/*      
-   <div class = 'homeRow'>
-     <div class = 'homeColumn'> */}
-
-      {/* </div> */}
-      {/* <div class = 'homeColumn'>  */}
-      {/* <div class = 'homeWrapper'> */}
-
       <div class="homeRow">
         <div class="homeColumn">
           <HomeHistory />
         </div>
-
         <div class="homeColumn">
           <Portfolio />
         </div>

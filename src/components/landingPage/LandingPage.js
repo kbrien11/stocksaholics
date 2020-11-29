@@ -1,33 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 import LandingPageNavBar from './LandingPageNavBar';
-
-// import {FaMoneyBillAlt,FaWindows,FaPersonBooth} from 'react-icons/fa'
 
 function LandingPage() {
   return (
     <div>
       <div className="wrapper">
         <LandingPageNavBar />
-        <div className="showcase-container">
-          <div className="showcase-content">
-            <h1>
-              {' '}
-              <span className="showcase-h1"> Stocks</span>aholics
-            </h1>
-
-            <h3 className="showcase-h3">
-              {' '}
-              Sign up for free to buy and learn about new stocks or buy into the
-              <span className="future"> future</span> of finance
-            </h3>
-            <a href="/stocks" as={RouterLink}>
-              {' '}
-              Learn More{' '}
-            </a>
+        <header>
+          <div className="showcase-container">
+            <div className="showcase-content">
+              <h1>
+                <span className="showcase-h1"> Stocks</span>aholics
+              </h1>
+              <h3 className="showcase-h3">
+                Sign up for free to buy and learn about new stocks or buy into
+                the
+                <span className="future"> future</span> of finance
+              </h3>
+              <Link to="/stocks">Learn More</Link>
+            </div>
           </div>
-        </div>
+        </header>
       </div>
       <section id="landing-info">
         <div className="info-img"></div>
@@ -46,8 +40,7 @@ function LandingPage() {
 
       <section id="landing-test">
         <div className="test-content">
-          <h1> What are customers Say</h1>
-
+          <h1> What our customers say</h1>
           <div class="testimonial">
             <h2>Jordan Marcus</h2>
             <img
@@ -58,8 +51,8 @@ function LandingPage() {
               Software Engineer <span className="showcase-h1">ADP.</span>{' '}
             </h4>
             <h4>
-              "StackedCash helped me find the right companies to interview for
-              by helping me negoiate my salary."
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
+              ipsum sapiente aspernatur."
             </h4>
           </div>
           <div class="testimonial">
@@ -69,11 +62,11 @@ function LandingPage() {
               height="200"
             />
             <h4>
-              Senior Bitch <span className="showcase-h1">Gemini.</span>{' '}
+              Accountant <span className="showcase-h1">Gemini.</span>{' '}
             </h4>
             <h4>
-              "StackedCash helped me find which companies to avoid and which to
-              apply to."
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
+              ipsum sapiente aspernatur."
             </h4>
           </div>
         </div>
@@ -81,19 +74,16 @@ function LandingPage() {
 
       <section id="features">
         <div className="box">
-          {/* <span className='fa'> <FaMoneyBillAlt /></span> */}
           <h3> Stocks</h3>
           <h5>Learn and Discover new stocks</h5>
           <img src="https://mediacloud.kiplinger.com/image/private/s--_hz_SmZU--/t_primary-image-mobile@1/v1580335658/slideshow/investing/T052-S003-5-struggling-stocks-that-will-turn-around-in-2017/images/intro.jpg" />
         </div>
         <div className="box box-2">
-          {/* <span className='fa'><FaWindows /></span>  */}
           <h3> Invest</h3>
           <h5>Buy, sell, trade and hold stocks</h5>
           <img src="https://specials-images.forbesimg.com/imageserve/5da63b70db40260006202a39/960x0.jpg?fit=scale" />
         </div>
         <div className="box">
-          {/* <span className='fa'><FaPersonBooth /></span>  */}
           <h3>Crypto</h3>
           <h5>Invest in the future of finance with a click a the button</h5>
           <img
