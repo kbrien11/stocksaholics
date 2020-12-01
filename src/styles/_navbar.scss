@@ -41,6 +41,11 @@
   z-index: 5;
   position: sticky;
   top: 0px;
+  ul {
+    display: flex;
+    padding: 0px 30px;
+    list-style: none;
+  }
   a {
     color: whitesmoke;
     padding: 10px 30px;
@@ -51,11 +56,6 @@
   }
   li {
     justify-self: flex-end;
-  }
-  ul {
-    display: flex;
-    padding: 0px 30px;
-    list-style: none;
   }
 }
 
