@@ -5,7 +5,6 @@ import { useHistory } from 'react-router-dom';
 const Login = () => {
   const [inputEmail, setInputEmail] = useState('');
   const [inputPassword, setInputPassword] = useState('');
-
   const [isError, setIsError] = useState(false);
   const [token, setToken] = useState(false);
 
@@ -55,7 +54,7 @@ const Login = () => {
             id="email"
             placeholder=" John.Doe@gmail.com"
             onChange={(e) => setInputEmail(e.target.value)}
-          />{' '}
+          />
           <br />
           <label for="pass"> Password</label> <br />
           <input
@@ -63,14 +62,14 @@ const Login = () => {
             id="pass"
             placeholder=" xxxxxxxxxxxxxx"
             onChange={(e) => setInputPassword(e.target.value)}
-          />{' '}
+          />
           <br />
           <div></div>
           <button onClick={(e) => signin()}> Login</button> <br />
-          {/* <img src = "https://www.romania-insider.com/sites/default/files/styles/article_large_image/public/2020-04/remote_working_laptop_-_photo_pattanaphong_khuankaew_-_dreamstime.com_.jpg"  /> */}
         </div>
       )}
     </div>
   );
 };
+
 export default Login;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function SignUp() {
   const [inputEmail, setInputEmail] = useState('');
@@ -65,10 +65,7 @@ function SignUp() {
         <br />
         <button onClick={(e) => sendData()}> Register</button> <br />
         <p> Already have an account?</p>
-        <a link href="login" as={RouterLink}>
-          {' '}
-          Log in Here
-        </a>
+        <Link to="/login">Log in Here</Link>
       </div>
     </div>
   );
