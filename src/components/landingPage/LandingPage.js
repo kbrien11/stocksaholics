@@ -5,7 +5,7 @@ import LandingPageNavBar from './LandingPageNavBar';
 function LandingPage() {
   return (
     <div>
-      <div className="wrapper">
+      <div>
         <LandingPageNavBar />
         <header>
           <div className="showcase-container">

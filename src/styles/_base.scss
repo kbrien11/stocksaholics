@@ -1,4 +1,5 @@
 $color-primary: #2ecc71;
+$color-primary-light: #7ed56f;
 $color-primary-dark: #1d8348;
 
 // FONT VARIABLES
@@ -8,11 +9,18 @@ $font-display: 'Josefin Sans', sans-serif;
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+.body {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -0.1px;
+  line-height: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  content: 'width=device-width, initial-scale=1';
 }
 
 .App {
   text-align: center;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  content: 'width=device-width, initial-scale=1';
-  box-sizing: border-box;
 }

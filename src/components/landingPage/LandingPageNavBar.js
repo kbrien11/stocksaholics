@@ -3,22 +3,22 @@ import { Link } from 'react-router-dom';
 
 const LandingPageNavbar = () => {
   return (
-    <div className="navbar-main">
+    <div className="navbar">
       <h1 className="navbar-logo">
         <span className="text-primary"> Stocks</span>Aholics
       </h1>
       <nav>
         <ul>
-          <Link to="/signup">
+          <Link to="/signup" className="navbar-link">
             <li>Sign Up</li>
           </Link>
-          <Link to="/login">
+          <Link to="/login" className="navbar-link">
             <li>Login</li>
           </Link>
-          <Link to="/about">
+          <Link to="/about" className="navbar-link">
             <li>About</li>
           </Link>
-          <Link to="/contact">
+          <Link to="/contact" className="navbar-link">
             <li>Contact</li>
           </Link>
         </ul>

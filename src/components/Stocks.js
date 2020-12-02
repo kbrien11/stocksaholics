@@ -224,9 +224,11 @@ const Stocks = () => {
         </div>
       </div>
       <div className="news-container">
-        {relatedCompanies.length > 0 && <h3> Recent news</h3>}
+        {relatedCompanies && relatedCompanies.length > 0 && (
+          <h3> Recent news</h3>
+        )}
         <div className="news">
-          {relatedCompanies.length > 0 && relatedCompanies}
+          {relatedCompanies && relatedCompanies.length > 0 && relatedCompanies}
         </div>
       </div>
 
