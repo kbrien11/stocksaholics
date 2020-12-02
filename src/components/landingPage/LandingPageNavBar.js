@@ -4,21 +4,21 @@ import { Link } from 'react-router-dom';
 const LandingPageNavbar = () => {
   return (
     <div className="navbar">
-      <h1 className="navbar-logo">
+      <h2>
         <span className="text-primary"> Stocks</span>Aholics
-      </h1>
+      </h2>
       <nav>
         <ul>
-          <Link to="/signup" className="navbar-link">
+          <Link to="/signup">
             <li>Sign Up</li>
           </Link>
-          <Link to="/login" className="navbar-link">
+          <Link to="/login">
             <li>Login</li>
           </Link>
-          <Link to="/about" className="navbar-link">
+          <Link to="/about">
             <li>About</li>
           </Link>
-          <Link to="/contact" className="navbar-link">
+          <Link to="/contact">
             <li>Contact</li>
           </Link>
         </ul>
