@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './Navbar';
 import StockSearch from './StockSearch';
 import moment from 'moment';
 import Plot from 'react-plotly.js';
@@ -168,7 +167,6 @@ const Stocks = () => {
   const total_updated = total.toFixed(0);
   return (
     <div>
-      <Navbar />
       <div className="stock-page-balance">{currentBalance}</div>
       <div class="rowTwo">
         {output.length > 0 && (
@@ -224,9 +222,11 @@ const Stocks = () => {
         </div>
       </div>
       <div className="news-container">
-        {relatedCompanies.length > 0 && <h3> Recent news</h3>}
+        {relatedCompanies && relatedCompanies.length > 0 && (
+          <h3> Recent news</h3>
+        )}
         <div className="news">
-          {relatedCompanies.length > 0 && relatedCompanies}
+          {relatedCompanies && relatedCompanies.length > 0 && relatedCompanies}
         </div>
       </div>
 

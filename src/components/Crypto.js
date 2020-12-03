@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from './Navbar';
 import Plot from 'react-plotly.js';
 
 const Crypto = () => {
@@ -47,7 +46,6 @@ const Crypto = () => {
   const currentPrice = data.toLocaleString();
   return (
     <div class="cryptoInfo">
-      <Navbar />
       <input
         type="text"
         placeholder="Symbol"

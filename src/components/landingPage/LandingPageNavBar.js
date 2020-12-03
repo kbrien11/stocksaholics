@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 const LandingPageNavbar = () => {
   return (
-    <div className="navbar-main">
-      <h1 className="navbar-logo">
+    <div className="navbar">
+      <h2>
         <span className="text-primary"> Stocks</span>Aholics
-      </h1>
+      </h2>
       <nav>
         <ul>
           <Link to="/signup">

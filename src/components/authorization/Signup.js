@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function SignUp() {
   const [inputEmail, setInputEmail] = useState('');
@@ -30,47 +30,41 @@ function SignUp() {
     <div className="registerimage">
       <div className="register-container"></div>
       <div className="register">
-        <h3> Register</h3>
-        <label for="first"> First Name</label> <br />
+        <h3>Register</h3>
+        <label>First Name</label> <br />
         <input
           type="text"
-          id="first"
-          placeholder=" John"
+          placeholder="John"
           onChange={(e) => setFirstName(e.target.value)}
         />
         <br />
-        <label for="last"> Last Name</label> <br />
+        <label>Last Name</label> <br />
         <input
           type="text"
-          id="last"
-          placeholder=" Doe"
+          placeholder="Doe"
           onChange={(e) => setLastName(e.target.value)}
-        />{' '}
+        />
         <br />
-        <label for="email"> Email</label> <br />
+        <label> Email</label> <br />
         <input
-          type="text"
-          id="email"
-          placeholder=" John.Doe@gmail.com"
+          type="email"
+          placeholder="John.Doe@gmail.com"
           onChange={(e) => setInputEmail(e.target.value)}
-        />{' '}
+        />
         <br />
-        <label for="pass"> Password</label> <br />
+        <label>Password</label> <br />
         <input
           type="password"
-          id="pass"
-          placeholder=" xxxxxxxx"
+          placeholder="xxxxxxxx"
           onChange={(e) => setInputPassword(e.target.value)}
-        />{' '}
+        />
         <br />
         <button onClick={(e) => sendData()}> Register</button> <br />
         <p> Already have an account?</p>
-        <a link href="login" as={RouterLink}>
-          {' '}
-          Log in Here
-        </a>
+        <Link to="/login">Log in Here</Link>
       </div>
     </div>
   );
 }
+
 export default SignUp;

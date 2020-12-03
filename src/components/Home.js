@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HomeHistory, Navbar, Portfolio, Tracking, Trades } from './index';
+import { HomeHistory, Portfolio, Tracking, Trades } from './index';
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -94,8 +94,7 @@ const Home = () => {
   const dataBalance = data.toLocaleString();
   return (
     <div>
-      <Navbar />
-      <div class="deposit">
+      <div className="deposit">
         <p> Would you like to deposit money into your account?</p>
         <input
           placeholder="amount"
@@ -109,29 +108,29 @@ const Home = () => {
         </button>
         {inputdeposit && <p> successfully addded!</p>}
       </div>
-      <div class="homebalance">
+      <div className="homebalance">
         <h2> USD Balance</h2>
         <hr color="black"></hr>
         <p>{'$' + dataBalance}</p>
       </div>
-      <div class="homebalance">
+      <div className="homebalance">
         <h2> Total Equity</h2>
         <hr color="black"></hr>
         <p>{'$' + datas + ''}</p>
       </div>
       {output.length > 0 && (
-        <div class="grid">
+        <div className="grid">
           {output.length > 0 && <h3> Tracking: {output.length}</h3>}
           {output.length > 0 && <hr></hr>}
-          <div class="nested">{output}</div>
+          <div className="nested">{output}</div>
         </div>
       )}
       {output.length > 0 && <hr></hr>}
-      <div class="homeRow">
-        <div class="homeColumn">
+      <div className="homeRow">
+        <div className="homeColumn">
           <HomeHistory />
         </div>
-        <div class="homeColumn">
+        <div className="homeColumn">
           <Portfolio />
         </div>
       </div>

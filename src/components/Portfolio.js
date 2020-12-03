@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './Navbar';
 import Pos from './Position';
 
 const Portfolio = () => {
@@ -16,30 +15,6 @@ const Portfolio = () => {
   useEffect(() => {
     Total();
   }, []);
-  // useEffect(() => {
-  //   StockPrice();
-  // }, []);
-
-  // const useStyles = makeStyles((theme) => ({
-  //   root: {
-  //     display: 'grid',
-  //     flexWrap: 'wrap',
-  //     justifyContent: 'space-around',
-  //     borderStyle:'solid',
-  //     borderColor:'lightGrey',
-  //     marginRight:'10%',
-  //     overflow: 'hidden',
-  //     backgroundColor: theme.palette.background.paper,
-  //   },
-  //   gridList: {
-  //     width: 500,
-  //     height: 450,
-
-  //   },
-  //   icon: {
-  //     color: 'rgba(255, 255, 255, 0.54)',
-  //   },
-  // }));
 
   const Positions = async () => {
     try {

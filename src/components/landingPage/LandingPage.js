@@ -5,7 +5,7 @@ import LandingPageNavBar from './LandingPageNavBar';
 function LandingPage() {
   return (
     <div>
-      <div className="wrapper">
+      <div>
         <LandingPageNavBar />
         <header>
           <div className="showcase-container">
@@ -41,7 +41,7 @@ function LandingPage() {
       <section id="landing-test">
         <div className="test-content">
           <h1> What our customers say</h1>
-          <div class="testimonial">
+          <div className="testimonial">
             <h2>Jordan Marcus</h2>
             <img
               src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500"
@@ -55,7 +55,7 @@ function LandingPage() {
               ipsum sapiente aspernatur."
             </h4>
           </div>
-          <div class="testimonial">
+          <div className="testimonial">
             <h2>Eric Marcus</h2>
             <img
               src="https://static01.nyt.com/images/2019/11/17/books/review/17Salam/Salam1-superJumbo.jpg"
