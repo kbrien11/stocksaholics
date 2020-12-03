@@ -30,7 +30,7 @@ function AppRouter() {
           path="/login"
           component={() => <Login handleLogin={handleLogin} />}
         />
-        {isLoggedIn && (
+        {(isLoggedIn || !!sessionStorage.getItem('token')) && (
           <div>
             <Navbar />
             <Switch>
