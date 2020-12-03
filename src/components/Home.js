@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HomeHistory, Navbar, Portfolio, Tracking, Trades } from './index';
+import { HomeHistory, Portfolio, Tracking, Trades } from './index';
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -94,7 +94,6 @@ const Home = () => {
   const dataBalance = data.toLocaleString();
   return (
     <div>
-      <Navbar />
       <div className="deposit">
         <p> Would you like to deposit money into your account?</p>
         <input

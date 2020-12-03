@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './Navbar';
 import Trades from './Trades';
 
 const History = (props) => {
@@ -32,7 +31,6 @@ const History = (props) => {
 
   return (
     <div>
-      <Navbar />
       {results.length > 0 && <h2>My Trade Histroy</h2>}
       {results.length > 0 && <hr color="black"></hr>}
       {green && <p>'+'</p>}
