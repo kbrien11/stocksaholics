@@ -6,6 +6,7 @@ import Home from './Home';
 import HomeHistory from './HomeHistory';
 import HomeTrades from './HomeTrades';
 import Navbar from './Navbar';
+import NavSearchBar from './NavSearchBar';
 import Portfolio from './Portfolio';
 import Position from './Position';
 import Purchase from './Purchase';
@@ -24,6 +25,7 @@ export {
   HomeHistory,
   HomeTrades,
   Navbar,
+  NavSearchBar,
   Portfolio,
   Position,
   Purchase,
