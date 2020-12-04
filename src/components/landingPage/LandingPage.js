@@ -18,7 +18,7 @@ function LandingPage() {
                 the
                 <span className="future"> future</span> of finance
               </h3>
-              <Link to="/stocks">Learn More</Link>
+              <Link to="/about">Learn More</Link>
             </div>
           </div>
         </header>

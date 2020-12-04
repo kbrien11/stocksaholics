@@ -25,6 +25,7 @@ function AppRouter() {
         {/* Routes placed here are available to all visitors */}
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/about" component={About} />
         <Route
           exact
           path="/login"
@@ -36,7 +37,6 @@ function AppRouter() {
             <Switch>
               <Route exact path="/home" component={Home} />
               <Route exact path="/stocks" component={Stocks} />
-              <Route exact path="/about" component={About} />
               <Route exact path="/crypto" component={Crypto} />
               <Route exact path="/history" component={History} />
             </Switch>
