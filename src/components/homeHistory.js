@@ -19,11 +19,26 @@ const HomeHistory = () => {
     }
   };
 
-  const limit_trades = trades.map((i) => {
-    return <Trades datas={i} />;
+  const limit_trades = trades.map((trade) => {
+    return (
+      <Trades
+        datas={trade}
+        numberShares={trade[3]}
+        ticker={trade[2]}
+        equity={trade[4]}
+        tradeAction={trade[5]}
+        date={trade[6]}
+      />
+    );
   });
+  console.log(limit_trades);
 
-  return <div>{limit_trades}</div>;
+  return (
+    <div>
+      <h1 className='position-h1'> Recent Transactions</h1>
+      {limit_trades}
+    </div>
+  );
 };
 
 export default HomeHistory;

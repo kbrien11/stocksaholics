@@ -8,6 +8,7 @@ import {
   Home,
   Navbar,
   Portfolio,
+  Cash,
   Stocks
 } from './components';
 import { LandingPage } from './components/landingPage';
@@ -39,6 +40,7 @@ function AppRouter() {
               <Route exact path="/stocks" component={Stocks} />
               <Route exact path="/crypto" component={Crypto} />
               <Route exact path="/history" component={History} />
+              <Route exact path="/cash" component={Cash} />
             </Switch>
           </div>
         )}
