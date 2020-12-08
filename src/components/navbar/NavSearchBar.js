@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import BaseService from '../services/BaseService';
+import BaseService from '../../services/BaseService';
 import { debounce } from 'lodash';
 
 const NavSearchBar = () => {
