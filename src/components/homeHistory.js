@@ -5,16 +5,15 @@ const HomeHistory = () => {
   const [token, setToken] = useState(sessionStorage.getItem('token') || '');
   const [trades, setTrades] = useState([]);
 
-  useEffect(() => {
-    TradeHistory();
-  }, []);
+  // useEffect(() => {
+  //   TradeHistory();
+  // }, []);
 
   const TradeHistory = async () => {
     try {
       const response = await fetch(`http://127.0.0.1:5000/api/${token}/recent`);
       const res = await response.json();
       setTrades(res.trades);
-      console.log(res.trades);
     } catch (error) {
       console.log(error);
     }

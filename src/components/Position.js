@@ -12,9 +12,9 @@ const Pos = (props) => {
     StockPrice();
   }, []);
 
-  useEffect(() => {
-    companyLogo();
-  }, []);
+  // useEffect(() => {
+  //   companyLogo();
+  // }, []);
 
   console.log(props);
 
