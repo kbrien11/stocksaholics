@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-const Tracking = (props) => {
+const Tracking = ({ ticker }) => {
   const [token, setToken] = useState(sessionStorage.getItem('token') || '');
   const [datas, setDatas] = useState([]);
   const [data, setData] = useState([]);
   const [low, setLow] = useState([]);
   const [recco, setRec] = useState('');
   const [ratio, setRatio] = useState([]);
+  const [chartData, setChartData] = useState([]);
   const [change, setChange] = useState('');
   const [yearChange, setYearChange] = useState([]);
 
@@ -20,7 +21,7 @@ const Tracking = (props) => {
   const StockPrice = async () => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/prices/${props.data[0]}/${token}`
+        `http://127.0.0.1:5000/api/prices/${ticker}/${token}`
       );
       const res = await response.json();
       if (res.current_price) {
@@ -29,7 +30,7 @@ const Tracking = (props) => {
         setLow(res.low);
         setRatio(res.ratio);
         setChange(res.change);
-
+        setChartData(res.tracker_chart);
         setYearChange(res.yearchange);
         console.log(res.current_price);
       }
@@ -41,7 +42,7 @@ const Tracking = (props) => {
   const Reccomendation = async () => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/recco/${props.data[0]}/${token}`
+        `http://127.0.0.1:5000/api/recco/${ticker}/${token}`
       );
       const res = await response.json();
       if (res.current) {
@@ -64,22 +65,21 @@ const Tracking = (props) => {
   };
 
   const price = datas.toLocaleString();
-  const separator = data.toLocaleString();
-  const lowSep = low.toLocaleString();
+  const amounts = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  console.log(chartData);
+
   console.log(change);
   return (
-    <div class="rowss">
-      <div class="colum">
-        <div class="cards">
-          <h2>{props.data[0]}</h2>
-          <hr color="black"></hr>
+    <div class='rowss'>
+      <div class='colum'>
+        <div class='cards'>
+          <h2>{ticker}</h2>
+
           <h5> 24HR Change</h5>
           <h4> {change > 0 ? '+' + change : change}</h4>
-          <h4>{recco}</h4>
+
           <h3> {'$' + price}</h3>
-          <p> Week52high: {'$' + separator}</p>
-          <p> Week52low: {'$' + lowSep}</p>
-          <p> P/E Ratio: {ratio}</p>
         </div>
       </div>
     </div>

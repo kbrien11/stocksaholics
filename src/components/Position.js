@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Pos = (props) => {
+const Pos = ({ ticker, numberShares }) => {
   const [token, setToken] = useState(sessionStorage.getItem('token') || '');
   const [positionPrices, setPositionPrices] = useState([]);
   const [equity, setEquity] = useState(false);
@@ -16,12 +16,10 @@ const Pos = (props) => {
     companyLogo();
   }, []);
 
-  console.log(props);
-
   const StockPrice = async () => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/prices/${props.position[0]}/${token}`
+        `http://127.0.0.1:5000/api/prices/${ticker}/${token}`
       );
       const res = await response.json();
       if (res.current_price) {
@@ -36,9 +34,7 @@ const Pos = (props) => {
 
   const companyLogo = async () => {
     try {
-      const response = await fetch(
-        `http://127.0.0.1:5000/api/logo/${props.position[0]}`
-      );
+      const response = await fetch(`http://127.0.0.1:5000/api/logo/${ticker}`);
       const res = await response.json();
       if (res.logo) {
         setImage(res.logo);
@@ -48,29 +44,24 @@ const Pos = (props) => {
     }
   };
 
-  const equity_amount = positionPrices * props.position[1];
+  const equity_amount = positionPrices * numberShares;
 
   const equity_amount_rounded = equity_amount.toLocaleString();
 
   return (
-    <div class="table-box">
-      <div class="table-row">
-        <div class="table-cell">
-          <div class="homePositions">
-            {image && (
-              <img
-                className="position-logo"
-                src={image}
-                width="30"
-                height="50"
-              ></img>
-            )}
-            <h2> {props.position[0]}</h2>
-            {equity && <p> Total Equity: {'$' + equity_amount_rounded}</p>}
-            <p> {props.position[1]} Shares</p>
-          </div>
-        </div>
+    <div class='position-home'>
+      <div className='position-logo'>
+        {image && <img src={image} width='30' height='50'></img>}
+        <h2> {ticker}</h2>
       </div>
+
+      <div className='position-equity'>
+        {equity && <p> Total Equity: {'$' + equity_amount_rounded}</p>}
+        <p> {numberShares} Total Share(s)</p>
+      </div>
+      {/* <div className='position-shares'>
+        <p> {numberShares} Total Share(s)</p>
+      </div> */}
     </div>
   );
 };

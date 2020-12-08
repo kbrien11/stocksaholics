@@ -2,35 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { HomeHistory, Portfolio, Tracking, Trades } from './index';
 
 const Home = () => {
-  const [data, setData] = useState([]);
   const [datas, setDatas] = useState([]);
   const [trackingdata, setTrackingData] = useState([]);
   const [trades, setTrades] = useState([]);
   const [token, setToken] = useState(sessionStorage.getItem('token'));
-  const [inputAmount, setAmount] = useState('');
-  const [inputdeposit, setDeposit] = useState(false);
 
-  useEffect(() => {
-    balance();
-  }, []);
   useEffect(() => {
     getTracking();
   }, []);
   useEffect(() => {
     Equity();
   }, []);
-
-  const balance = async () => {
-    try {
-      const response = await fetch(
-        `http://127.0.0.1:5000/api/${token}/balance`
-      );
-      const res = await response.json();
-      setData(res.balance);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const Equity = async () => {
     try {
@@ -41,10 +23,6 @@ const Home = () => {
     } catch (error) {
       console.log(error);
     }
-  };
-
-  const clear = () => {
-    setAmount('');
   };
 
   const getTracking = async () => {
@@ -63,74 +41,35 @@ const Home = () => {
     }
   };
 
-  const output = trackingdata.map((i) => {
-    return <Tracking data={i} />;
+  const watchlist = trackingdata.map((i) => {
+    return <Tracking data={i} ticker={i[0]} />;
   });
+
+  console.log(watchlist);
 
   const limit_trades = trades.map((i) => {
-    return <Trades datas={i} />;
+    return <Trades datas={i} ticker={i[0]} />;
   });
 
-  const deposit = async () => {
-    setDeposit(false);
-    const endpoint = `http://localhost:5000/api/${token}/${inputAmount}`;
-    const data = {
-      amount: inputAmount
-    };
-    const configs = {
-      method: 'POST',
-      mode: 'cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    };
-    const response = await fetch(endpoint, configs);
-    const res = await response.json();
-    clear();
-    balance();
-    console.log(res.token);
-    setDeposit(true);
-  };
-
-  const dataBalance = data.toLocaleString();
   return (
     <div>
-      <div className="deposit">
-        <p> Would you like to deposit money into your account?</p>
-        <input
-          placeholder="amount"
-          type="text"
-          value={inputAmount}
-          onChange={(e) => setAmount(e.target.value)}
-        />
-        <button type="button" onClick={(e) => deposit()}>
-          {' '}
-          Increase
-        </button>
-        {inputdeposit && <p> successfully addded!</p>}
-      </div>
-      <div className="homebalance">
-        <h2> USD Balance</h2>
-        <hr color="black"></hr>
-        <p>{'$' + dataBalance}</p>
-      </div>
-      <div className="homebalance">
+      <div className='homebalance'>
         <h2> Total Equity</h2>
-        <hr color="black"></hr>
+
         <p>{'$' + datas + ''}</p>
       </div>
-      {output.length > 0 && (
-        <div className="grid">
-          {output.length > 0 && <h3> Tracking: {output.length}</h3>}
-          {output.length > 0 && <hr></hr>}
-          <div className="nested">{output}</div>
+
+      {watchlist.length > 0 && (
+        <div className='grid'>
+          <div className='nested'>{watchlist}</div>
         </div>
       )}
-      {output.length > 0 && <hr></hr>}
-      <div className="homeRow">
-        <div className="homeColumn">
+
+      <div className='homeRow'>
+        <div className='homeColumn'>
           <HomeHistory />
         </div>
-        <div className="homeColumn">
+        <div className='homeColumn'>
           <Portfolio />
         </div>
       </div>
