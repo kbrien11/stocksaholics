@@ -37,9 +37,9 @@
     padding: 0px 30px;
     list-style: none;
     a {
-      padding: 10px 30px;
+      padding: 10px 20px;
       &:hover {
-        border-bottom: 2px solid whitesmoke;
+        border-bottom: 2px solid $color-primary;
       }
     }
   }
