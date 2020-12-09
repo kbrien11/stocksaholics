@@ -12,9 +12,9 @@ const Pos = ({ ticker, numberShares }) => {
     StockPrice();
   }, []);
 
-  useEffect(() => {
-    companyLogo();
-  }, []);
+  // useEffect(() => {
+  //   companyLogo();
+  // }, []);
 
   const StockPrice = async () => {
     try {

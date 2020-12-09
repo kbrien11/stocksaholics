@@ -24,3 +24,9 @@ $font-display: 'Josefin Sans', sans-serif;
 .App {
   text-align: center;
 }
+
+@mixin flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
