@@ -5,9 +5,9 @@ const HomeHistory = () => {
   const [token, setToken] = useState(sessionStorage.getItem('token') || '');
   const [trades, setTrades] = useState([]);
 
-  // useEffect(() => {
-  //   TradeHistory();
-  // }, []);
+  useEffect(() => {
+    TradeHistory();
+  }, []);
 
   const TradeHistory = async () => {
     try {
@@ -35,8 +35,18 @@ const HomeHistory = () => {
 
   return (
     <div>
-      <h1 className='position-h1'> Recent Transactions</h1>
-      {limit_trades}
+      <table className='content-table-transactions'>
+        <thead>
+          <tr>
+            <th> Recent Transactions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{limit_trades}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };

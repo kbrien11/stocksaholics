@@ -63,9 +63,18 @@ const Portfolio = () => {
 
   return (
     <div>
-      <h1 className='position-h1'> Portfolio</h1>
-
-      {current_positions}
+      <table className='content-table'>
+        <thead>
+          <tr>
+            <th> Positions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{current_positions}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };
