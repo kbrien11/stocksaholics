@@ -25,16 +25,24 @@ const History = (props) => {
     }
   };
 
-  const results = datas.map((i) => {
+  const trades = datas.map((i) => {
     return <Trades datas={i} />;
   });
 
   return (
-    <div>
-      {results.length > 0 && <h2>My Trade Histroy</h2>}
-      {results.length > 0 && <hr color="black"></hr>}
-      {green && <p>'+'</p>}
-      {results}
+    <div className='trade-history-container'>
+      <table className='trade-history-table'>
+        <thead>
+          <tr>
+            <th> Trades</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{trades.length > 0 && trades}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };

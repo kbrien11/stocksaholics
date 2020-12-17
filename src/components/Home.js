@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { HomeHistory, Portfolio, Tracking, Trades } from './index';
+import Gainers from './Gainers';
+import Losers from './Losers';
 
 const Home = () => {
   const [datas, setDatas] = useState([]);
@@ -41,6 +43,8 @@ const Home = () => {
     }
   };
 
+  const updatedEquity = datas.toLocaleString();
+
   const watchlist = trackingdata.map((i) => {
     return <Tracking data={i} ticker={i[0]} />;
   });
@@ -56,20 +60,61 @@ const Home = () => {
       <div className='homebalance'>
         <h2> Total Equity</h2>
 
-        <p>{'$' + datas + ''}</p>
+        <p>{'$' + updatedEquity + ''}</p>
       </div>
 
-      {watchlist.length > 0 && (
-        <div className='grid'>
-          <div className='nested'>{watchlist}</div>
-        </div>
-      )}
+      <div className='home-watchlist-center'>
+        <table className='tracking-table'>
+          <thead>
+            <tr>
+              <th> Watchlist</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{watchlist}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div className='home-gainer-flex'>
+        <table className='gainers-table'>
+          <thead>
+            <tr>
+              <th> Top Gainers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <Gainers />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table className='losers-table'>
+          <thead>
+            <tr>
+              <th> Top Losers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <Losers />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <div className='homeRow'>
-        <div className='homeColumn'>
+        <div className='homeColumn-transactions'>
           <HomeHistory />
         </div>
-        <div className='homeColumn'>
+        <div className='homeColumn-positions'>
           <Portfolio />
         </div>
       </div>

@@ -12,9 +12,9 @@ const Pos = ({ ticker, numberShares }) => {
     StockPrice();
   }, []);
 
-  // useEffect(() => {
-  //   companyLogo();
-  // }, []);
+  useEffect(() => {
+    companyLogo();
+  }, []);
 
   const StockPrice = async () => {
     try {
@@ -51,12 +51,13 @@ const Pos = ({ ticker, numberShares }) => {
   return (
     <div class='position-home'>
       <div className='position-logo'>
-        {image && <img src={image} width='30' height='50'></img>}
-        <h2> {ticker}</h2>
+        {image && <img src={image} width='30' height='30'></img>}
+        <h2>
+          <span>{ticker}</span>
+        </h2>
       </div>
-
       <div className='position-equity'>
-        {equity && <p> Total Equity: {'$' + equity_amount_rounded}</p>}
+        {equity && <h5> Total Equity: {'$' + equity_amount_rounded}</h5>}
         <p> {numberShares} Total Share(s)</p>
       </div>
       {/* <div className='position-shares'>
