@@ -23,6 +23,23 @@ class BaseService {
     }
   }
 
+  static async extGET(URL) {
+    const response = await fetch(URL, {
+      method: 'GET',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    if (response.status !== 200) {
+      console.log('There was a problem: ' + response);
+    } else {
+      return response.json();
+    }
+  }
+
   static async POST(URL, data) {
     const response = await fetch(this.serviceContext + URL, {
       method: 'POST',

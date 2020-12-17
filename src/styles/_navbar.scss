@@ -17,13 +17,14 @@
 
 .logo {
   padding-right: 30px;
+  align-self: center;
 }
 
-.navbar {
+.landing-navbar-container {
   @include flex;
   background-color: black;
   color: whitesmoke;
-  min-width: 100vh;
+  min-width: 100vw;
   height: 70px;
   z-index: 5;
   position: sticky;
@@ -49,18 +50,57 @@
 }
 
 .navbar-container {
-  @include flex;
+  // @include flex;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  background-color: black;
+  color: whitesmoke;
+  min-width: 100vw;
+  height: 70px;
+  z-index: 5;
+  position: sticky;
+  top: 0px;
+  a {
+    text-decoration: none;
+    color: whitesmoke;
+  }
+  ul {
+    display: flex;
+    padding: 0px 30px;
+    list-style: none;
+    a {
+      padding: 10px 20px;
+      &:hover {
+        border-bottom: 2px solid $color-primary;
+      }
+    }
+  }
+  li {
+    justify-self: flex-end;
+  }
+}
+
+.navbar-section-one {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 }
 .navbar-search-container {
   margin: 0 30px;
   background-color: rgb(30, 33, 36);
   border-radius: 8px;
   border: 1px solid rgb(48, 54, 58);
-  // transition: border-color 300ms ease 0s, box-shadow 300ms ease 0s;
   position: relative;
+  height: 40px;
+  align-self: center;
+  justify-self: start;
   &.isFocused {
     outline: none;
-    border: 1px solid $color-primary;
+    border: 2px solid $color-primary;
+    &.showMenu {
+      border-bottom: none;
+      border-bottom-right-radius: 2px;
+      border-bottom-left-radius: 2px;
+    }
   }
 }
 
@@ -91,13 +131,59 @@
   cursor: pointer;
 }
 
-.logo h1 {
-  font-weight: 300;
-  line-height: 1.2;
-  padding: 0px 20px;
-}
-
 .text-primary {
   margin-left: 15px;
   color: $color-primary;
+  font-size: 36px;
+  font-weight: 300;
+}
+
+.search-menu {
+  background-color: rgb(30, 33, 36);
+  border-top: none;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -0.1px;
+  line-height: 20px;
+  margin-left: -2px;
+  margin-top: -3px;
+  min-width: 120px;
+  position: absolute;
+  width: 424px;
+  &.isFocused {
+    border: 2px solid $color-primary;
+    border-top: none;
+  }
+}
+
+.search-container {
+  margin: 10px 20px;
+}
+
+.stock-item-row {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 28px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  &:hover {
+    background-color: rgb(48, 54, 58);
+  }
+}
+.stock-symbol {
+  padding-left: 10px;
+  flex-basis: 20%;
+  text-align: left;
+}
+.stock-name {
+  margin-left: 30px;
+}
+
+.navbar-links {
+  align-self: center;
 }
