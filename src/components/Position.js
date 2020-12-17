@@ -51,14 +51,9 @@ const Pos = ({ ticker, numberShares }) => {
   return (
     <div class='position-home'>
       <div className='position-logo'>
+        {image && <img src={image} width='30' height='30'></img>}
         <h2>
-          {' '}
-          {ticker}{' '}
-          <span>
-            {image && (
-              <img src={image} marginTop='10px' width='30' height='40'></img>
-            )}
-          </span>
+          <span>{ticker}</span>
         </h2>
       </div>
       <div className='position-equity'>

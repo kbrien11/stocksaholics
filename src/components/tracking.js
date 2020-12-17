@@ -59,36 +59,32 @@ const Tracking = ({ ticker }) => {
 
   console.log(change);
   return (
-    <div>
-      <div class='tracking'>
-        <h2>{ticker}</h2>
+    <div className='tracking'>
+      <h2>
+        {ticker} <span> ({change > 0 ? '+' + change : change})</span>
+      </h2>
 
-        <div className='tracking-change'>
-          <h4> 24HR Change</h4>
-          <h5> {change > 0 ? '+' + change : change} </h5>
-        </div>
-
+      <div className='tracking-price'>
         <h3> {'$' + price}</h3>
       </div>
-      <div className='tracking-chart'>
-        <Plot
-          data={[
-            {
-              x: trackingChart[0],
-              y: trackingChart[1],
-              type: 'scatter',
-              line: {
-                color: 'darkblue',
-                width: 2
-              }
+
+      <Plot
+        data={[
+          {
+            x: trackingChart[0],
+            y: trackingChart[1],
+            type: 'scatter',
+            line: {
+              color: 'darkblue',
+              width: 2
             }
-          ]}
-          layout={{
-            width: 300,
-            height: 280
-          }}
-        />
-      </div>
+          }
+        ]}
+        layout={{
+          width: 300,
+          height: 280
+        }}
+      />
       <hr></hr>
     </div>
   );

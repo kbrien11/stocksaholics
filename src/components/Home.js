@@ -63,12 +63,6 @@ const Home = () => {
         <p>{'$' + updatedEquity + ''}</p>
       </div>
 
-      {/* {watchlist.length > 0 && (
-        <div className='grid'>
-          <div className='nested'>{watchlist}</div>
-        </div>
-      )} */}
-
       <div className='home-watchlist-center'>
         <table className='tracking-table'>
           <thead>
@@ -84,40 +78,36 @@ const Home = () => {
         </table>
       </div>
 
-      <div className='gainer-loser-flex'>
-        <div className='home-gainer-flex'>
-          <table className='gainers-table'>
-            <thead>
-              <tr>
-                <th> Top Gainers</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <Gainers />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <div className='home-gainer-flex'>
+        <table className='gainers-table'>
+          <thead>
+            <tr>
+              <th> Top Gainers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <Gainers />
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-        <div className='home-loser-flex'>
-          <table className='losers-table'>
-            <thead>
-              <tr>
-                <th> Top Losers</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <Losers />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <table className='losers-table'>
+          <thead>
+            <tr>
+              <th> Top Losers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <Losers />
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <div className='homeRow'>

@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Pos from './Position';
 import Plot from 'react-plotly.js';
+import { FaChartPie, FaChartBar } from 'react-icons/fa';
 
 const Portfolio = () => {
   const [token, setToken] = useState(sessionStorage.getItem('token') || '');
   const [positions, setPositions] = useState([]);
+  const [graphPositions, setGraphPositions] = useState([]);
   const [datas, setDatas] = useState([]);
   const [datass, setDatass] = useState([]);
   const [total, setTotal] = useState(0);
   const [equity, setEquity] = useState(false);
+  const [graph, setGraph] = useState(false);
+  const [bar, setBar] = useState(false);
 
   useEffect(() => {
     Positions();
@@ -18,12 +22,15 @@ const Portfolio = () => {
   }, []);
 
   const Positions = async () => {
+    setBar();
+    setGraph();
     try {
       const response = await fetch(
         `http://127.0.0.1:5000/api/${token}/positions`
       );
       const res = await response.json();
       setPositions(res.Positions);
+      setGraphPositions(res.Positions_for_graph);
       console.log(res.Positions);
     } catch (error) {
       console.log(error);
@@ -53,8 +60,26 @@ const Portfolio = () => {
     );
   });
 
-  const tickers = positions.map((position) => {
+  const setGraphOn = () => {
+    setGraph(true);
+  };
+  const setGraphOff = () => {
+    setGraph();
+  };
+
+  const setBarOn = () => {
+    setBar(true);
+  };
+  const setBarOff = () => {
+    setBar();
+  };
+
+  const tickers = graphPositions.map((position) => {
     return position[0];
+  });
+
+  const values = graphPositions.map((position) => {
+    return position[2];
   });
 
   console.log(tickers);
@@ -63,18 +88,85 @@ const Portfolio = () => {
 
   return (
     <div>
-      <table className='content-table'>
-        <thead>
-          <tr>
-            <th> Positions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{current_positions}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className='positions-pie-chart'>
+        {graph && (
+          <button
+            className='position-list-button'
+            onClick={(e) => setGraphOff()}
+          >
+            {' '}
+            List
+          </button>
+        )}
+        {graph && (
+          <Plot
+            data={[
+              {
+                values: values,
+                labels: tickers,
+                type: 'pie'
+              }
+            ]}
+            layout={{
+              width: 800,
+              height: 680
+            }}
+          />
+        )}
+      </div>
+
+      <div className='positions-bar-chart'>
+        {bar && (
+          <button className='position-list-button' onClick={(e) => setBarOff()}>
+            {' '}
+            List
+          </button>
+        )}
+        {bar && (
+          <Plot
+            data={[
+              {
+                x: tickers,
+                y: values,
+                type: 'bar'
+              }
+            ]}
+            layout={{
+              width: 800,
+              height: 680
+            }}
+          />
+        )}
+      </div>
+
+      {!graph && !bar && (
+        <table className='content-table'>
+          <thead>
+            <tr>
+              <th>
+                {' '}
+                Positions{' '}
+                <span>
+                  <button onClick={(e) => setGraphOn()}>
+                    {' '}
+                    <FaChartPie />
+                  </button>{' '}
+                  <button onClick={(e) => setBarOn()}>
+                    {' '}
+                    <FaChartBar />
+                  </button>{' '}
+                  <br />
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{current_positions}</td>
+            </tr>
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };
