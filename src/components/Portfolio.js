@@ -74,13 +74,15 @@ const Portfolio = () => {
     setBar();
   };
 
-  const tickers = graphPositions.map((position) => {
-    return position[0];
-  });
+  const tickers =
+    graphPositions &&
+    graphPositions.length > 0 &&
+    graphPositions.map((position) => position[0]);
 
-  const values = graphPositions.map((position) => {
-    return position[2];
-  });
+  const values =
+    graphPositions &&
+    graphPositions.length > 0 &&
+    graphPositions.map((position) => position[2]);
 
   console.log(tickers);
 
@@ -88,13 +90,12 @@ const Portfolio = () => {
 
   return (
     <div>
-      <div className='positions-pie-chart'>
+      <div className="positions-pie-chart">
         {graph && (
           <button
-            className='position-list-button'
+            className="position-list-button"
             onClick={(e) => setGraphOff()}
           >
-            {' '}
             List
           </button>
         )}
@@ -115,10 +116,9 @@ const Portfolio = () => {
         )}
       </div>
 
-      <div className='positions-bar-chart'>
+      <div className="positions-bar-chart">
         {bar && (
-          <button className='position-list-button' onClick={(e) => setBarOff()}>
-            {' '}
+          <button className="position-list-button" onClick={(e) => setBarOff()}>
             List
           </button>
         )}
@@ -140,21 +140,18 @@ const Portfolio = () => {
       </div>
 
       {!graph && !bar && (
-        <table className='content-table'>
+        <table className="content-table">
           <thead>
             <tr>
               <th>
-                {' '}
-                Positions{' '}
+                Positions
                 <span>
                   <button onClick={(e) => setGraphOn()}>
-                    {' '}
                     <FaChartPie />
-                  </button>{' '}
+                  </button>
                   <button onClick={(e) => setBarOn()}>
-                    {' '}
                     <FaChartBar />
-                  </button>{' '}
+                  </button>
                   <br />
                 </span>
               </th>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import LoserByTicker from './Loser-ticker';
+import LoserTicker from './LoserTicker';
 
 const Losers = (props) => {
   useEffect(() => {
@@ -15,8 +15,7 @@ const Losers = (props) => {
         `http://127.0.0.1:5000/api/top_losers/${token}`
       );
       const res = await response.json();
-      console.log(res);
-
+      console.log(res.losers);
       if (res.losers) {
         setLosers(res.losers);
       }
@@ -25,25 +24,17 @@ const Losers = (props) => {
     }
   };
 
-  const output = Object.values(losers);
-
-  //   const tickers = output.map((ticker) => {
-  //     return <GainerByTicker ticker={ticker} />;
-  //   });
-
-  const PriceChange = output.map((ticker) => {
-    return (
-      <LoserByTicker
-        ticker={ticker.ticker}
-        percentChange={ticker.changesPercentage}
-      />
-    );
-  });
-
-  console.log(PriceChange);
-
-  console.log(output);
-  return <div> {PriceChange}</div>;
+  return (
+    <div>
+      {losers &&
+        losers.map((loser) => (
+          <LoserTicker
+            ticker={loser.ticker}
+            percentChange={loser.changesPercentage}
+          />
+        ))}
+    </div>
+  );
 };
 
 export default Losers;
