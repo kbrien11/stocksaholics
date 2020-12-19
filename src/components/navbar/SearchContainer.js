@@ -53,6 +53,13 @@ const SearchContainer = () => {
     };
   }, []);
 
+  const clearSearch = () => {
+    setQuery('');
+    setIsSearchBarFocused(false);
+    setIsSearchMenuFocused(false);
+    setSearchResults([]);
+  };
+
   return (
     <div
       ref={navSearchBarRef}
@@ -75,6 +82,7 @@ const SearchContainer = () => {
             stocks={searchResults}
             isSearchMenuFocused={isSearchMenuFocused}
             setIsSearchMenuFocused={setIsSearchMenuFocused}
+            clearSearch={clearSearch}
           />
         )}
     </div>

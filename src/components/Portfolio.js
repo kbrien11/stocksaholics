@@ -53,6 +53,7 @@ const Portfolio = () => {
   const current_positions = positions.map((position) => {
     return (
       <Pos
+        key={position[0]}
         position={position}
         ticker={position[0]}
         numberShares={position[1]}

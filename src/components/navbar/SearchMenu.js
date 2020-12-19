@@ -11,6 +11,7 @@ const SearchMenu = (props) => {
               key={stock.symbol}
               className="stock-item-row"
               to={`/stocks/${stock.symbol}`}
+              onClick={props.clearSearch}
             >
               <div
                 className="stock-symbol"

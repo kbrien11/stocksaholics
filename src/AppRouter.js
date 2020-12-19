@@ -7,8 +7,8 @@ import {
   History,
   Home,
   Navbar,
-  Portfolio,
   Cash,
+  StockPage,
   Stocks
 } from './components';
 import { LandingPage } from './components/landingPage';
@@ -33,17 +33,17 @@ function AppRouter() {
           component={() => <Login handleLogin={handleLogin} />}
         />
         {(isLoggedIn || !!sessionStorage.getItem('token')) && (
-          <div>
+          <React.Fragment>
             <Navbar />
             <Switch>
               <Route exact path="/home" component={Home} />
               <Route exact path="/stocks" component={Stocks} />
-              <Route path="/stocks/:stockId" exact component={Stocks} />
+              <Route path="/stocks/:ticker" exact component={StockPage} />
               <Route exact path="/crypto" component={Crypto} />
               <Route exact path="/history" component={History} />
               <Route exact path="/cash" component={Cash} />
             </Switch>
-          </div>
+          </React.Fragment>
         )}
         {/* Displays Login as a fallback */}
         <Route

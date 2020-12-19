@@ -11,7 +11,8 @@ import Portfolio from './Portfolio';
 import Position from './Position';
 import Purchase from './Purchase';
 import SearchContainer from './navbar/SearchContainer';
-import Stocks from './Stocks';
+import StockPage from './stocks/StockPage';
+import Stocks from './stocks/Stocks';
 import StockSearch from './StockSearch';
 import TotalShares from './TotalShares';
 import Tracking from './Tracking';
@@ -31,6 +32,7 @@ export {
   Position,
   Purchase,
   SearchContainer,
+  StockPage,
   Stocks,
   StockSearch,
   TotalShares,

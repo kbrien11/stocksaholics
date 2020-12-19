@@ -49,21 +49,19 @@ const Pos = ({ ticker, numberShares }) => {
   const equity_amount_rounded = equity_amount.toLocaleString();
 
   return (
-    <div class='position-home'>
-      <div className='position-logo'>
-        {image && <img src={image} width='30' height='30'></img>}
+    <div className="position-home">
+      <div className="position-logo">
+        {image && <img src={image} width="30" height="30"></img>}
         <h2>
           <span>{ticker}</span>
         </h2>
       </div>
-      <div className='position-equity'>
+      <div className="position-equity">
         {equity && <h5> Total Equity: {'$' + equity_amount_rounded}</h5>}
         <p> {numberShares} Total Share(s)</p>
       </div>
-      {/* <div className='position-shares'>
-        <p> {numberShares} Total Share(s)</p>
-      </div> */}
     </div>
   );
 };
+
 export default Pos;
