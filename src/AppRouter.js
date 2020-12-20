@@ -38,7 +38,7 @@ function AppRouter() {
             <Switch>
               <Route exact path="/home" component={Home} />
               <Route exact path="/stocks" component={Stocks} />
-              <Route path="/stocks/:ticker" exact component={StockPage} />
+              <Route exact path="/stocks/:ticker" component={StockPage} />
               <Route exact path="/crypto" component={Crypto} />
               <Route exact path="/history" component={History} />
               <Route exact path="/cash" component={Cash} />

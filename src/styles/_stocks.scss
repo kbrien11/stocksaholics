@@ -1,0 +1,54 @@
+.stock-page-container {
+}
+
+.stock-headline-container {
+  margin: 50px 50px 0 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stock-headline {
+  display: flex;
+  align-items: center;
+  &-ticker {
+    font-weight: bold;
+    font-size: 30px;
+  }
+  &-name {
+    font-size: 30px;
+    font-weight: 300;
+    padding-left: 20px;
+  }
+  &-price {
+    font-weight: 600;
+    font-size: 22px;
+  }
+
+  .favorite-icon {
+    margin-left: 7px;
+    margin-top: 2px;
+    cursor: pointer;
+    font-size: 20px;
+    color: $color-primary;
+  }
+}
+
+.stock-section-1,
+.stock-section-2 {
+  display: flex;
+}
+
+.stock-accordion {
+  margin-left: 20px;
+}
+
+.stock-news {
+  background-color: aqua;
+}
+.stock-about {
+  background-color: aquamarine;
+}
+.stock-sec-filings {
+  background-color: violet;
+}
