@@ -2,7 +2,7 @@ import BaseService from './BaseService';
 
 class FinancialModelingService {
   static serviceContext = 'https://financialmodelingprep.com/api/v3';
-  static token = '';
+  static token = '49e7ce60b35f5671e6fadad44d2e9e5c';
 
   static async search(searchParam) {
     return BaseService.extGET(
