@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Accordion } from '../../components/common';
 import StockHeadline from './StockHeadline';
 import StockChart from './StockChart';
-import StockPurchaseCard from './StockPurchaseCard';
+import OrderCard from './OrderCard';
 import BaseService from '../../services/BaseService';
 
 const StockPage = (props) => {
@@ -31,13 +31,11 @@ const StockPage = (props) => {
 
   return (
     <div className="stock-page-container">
-      <div className="stock-headline-container">
-        <StockHeadline stock={stock} />
-      </div>
+      <StockHeadline stock={stock} />
       <div className="stock-section-1">
         {stock && <StockChart stock={stock} />}
         <div className="stock-accordion">
-          <StockPurchaseCard />
+          <OrderCard stock={stock} />
         </div>
       </div>
       <div className="stock-section-2">

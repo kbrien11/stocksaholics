@@ -10,7 +10,7 @@ const StockHeadline = (props) => {
       ? props.stock.current_price
       : [];
   return (
-    <React.Fragment>
+    <div className="stock-headline-container">
       <div className="stock-headline">
         <div className="stock-headline-ticker">
           {stock && stock.length > 0 && stock[1]}
@@ -25,7 +25,7 @@ const StockHeadline = (props) => {
       <div className="stock-headline-price">
         {stock && stock.length > 2 && `$${stock[2]}`}
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 

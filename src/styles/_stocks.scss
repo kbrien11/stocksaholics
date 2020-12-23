@@ -1,8 +1,11 @@
 .stock-page-container {
+  width: 1024px;
+  margin: 0 auto;
 }
 
 .stock-headline-container {
-  margin: 50px 50px 0 50px;
+  margin: 50px 50px 40px 50px;
+  padding: 10px 30px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -11,13 +14,14 @@
 .stock-headline {
   display: flex;
   align-items: center;
+
   &-ticker {
-    font-weight: bold;
     font-size: 30px;
+    font-weight: 600;
   }
   &-name {
     font-size: 30px;
-    font-weight: 300;
+    font-weight: 400;
     padding-left: 20px;
   }
   &-price {
@@ -51,4 +55,79 @@
 }
 .stock-sec-filings {
   background-color: violet;
+}
+
+.order-card {
+  position: fixed;
+  background-color: $color-card-bg;
+  border-radius: 4px;
+  box-shadow: 0px 12px 24px $color-card-shadow,
+    0px -12px 24px $color-card-shadow;
+  margin-left: 30px;
+  width: 275px;
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-weight: 700;
+    border-bottom: 1px solid $color-card-border;
+  }
+  &-chevron {
+    cursor: pointer;
+  }
+  &-invest {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px;
+    border-bottom: 1.5px solid $color-card-border;
+
+    input[type='radio'] {
+      margin: 10px;
+      width: 18px;
+      height: 18px;
+    }
+    input[type='radio']:after {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      left: 3px;
+      top: 3px;
+      position: relative;
+      content: '';
+      display: inline-block;
+      visibility: visible;
+    }
+
+    input[type='radio']:checked:after {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      left: 3px;
+      top: 3px;
+      position: relative;
+      background-color: $color-primary;
+      content: '';
+      display: inline-block;
+      visibility: visible;
+    }
+    &-radios {
+      margin-left: -10px;
+      display: flex;
+      align-items: center;
+    }
+  }
+  &-label {
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  &-amount {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 0px;
+    label {
+      padding-bottom: 8px;
+    }
+  }
 }
