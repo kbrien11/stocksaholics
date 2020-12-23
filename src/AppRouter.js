@@ -25,12 +25,12 @@ function AppRouter() {
     <div>
       <Switch>
         {/* Routes placed here are available to all visitors */}
-        <Route exact path="/" component={LandingPage} />
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/about" component={About} />
+        <Route exact path='/' component={LandingPage} />
+        <Route exact path='/signup' component={Signup} />
+        <Route exact path='/about' component={About} />
         <Route
           exact
-          path="/login"
+          path='/login'
           component={() => <Login handleLogin={handleLogin} />}
         />
         {(isLoggedIn || !!sessionStorage.getItem('token')) && (
@@ -49,7 +49,7 @@ function AppRouter() {
         {/* Displays Login as a fallback */}
         <Route
           exact
-          path="/login"
+          path='/login'
           component={() => <Login handleLogin={handleLogin} />}
         />
       </Switch>
