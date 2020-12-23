@@ -3,7 +3,7 @@ import { HomeHistory, Portfolio, Tracking, Trades } from './index';
 import Gainers from './Gainers';
 import Losers from './Losers';
 
-const Home = () => {
+const HomeGrid = () => {
   const [datas, setDatas] = useState([]);
   const [trackingdata, setTrackingData] = useState([]);
   const [trades, setTrades] = useState([]);
@@ -63,23 +63,20 @@ const Home = () => {
         <p>{'$' + updatedEquity + ''}</p>
       </div>
 
-      <div className='home-watchlist-center'>
-        <table className='tracking-table'>
-          <thead>
-            <tr>
-              <th> Watchlist</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{watchlist}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table className='tracking-table'>
+        <thead>
+          <tr>
+            <th> Watchlist</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{watchlist}</td>
+          </tr>
+        </tbody>
+      </table>
 
-      {/* <div className='home-gainer-loser-container'> */}
-      <div className='home-gainer-flex'>
+      <div>
         <table className='gainers-table'>
           <thead>
             <tr>
@@ -110,17 +107,14 @@ const Home = () => {
           </tbody>
         </table>
       </div>
-      {/* </div> */}
 
-      <div className='homeRow'>
-        <div className='homeColumn-transactions'>
-          <HomeHistory />
-        </div>
-        <div className='homeColumn-positions'>
-          <Portfolio />
-        </div>
+      <div className='homeColumn-transactions'>
+        <HomeHistory />
+      </div>
+      <div className='homeColumn-positions'>
+        <Portfolio />
       </div>
     </div>
   );
 };
-export default Home;
+export default HomeGrid;

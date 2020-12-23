@@ -5,6 +5,7 @@ import {
   About,
   Crypto,
   History,
+  HomeGrid,
   Home,
   Navbar,
   Cash,

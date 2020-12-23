@@ -57,6 +57,7 @@ const Portfolio = () => {
         position={position}
         ticker={position[0]}
         numberShares={position[1]}
+        equity={position[2]}
       />
     );
   });
@@ -91,54 +92,48 @@ const Portfolio = () => {
 
   return (
     <div>
-      <div className="positions-pie-chart">
-        {graph && (
-          <button
-            className="position-list-button"
-            onClick={(e) => setGraphOff()}
-          >
-            List
-          </button>
-        )}
-        {graph && (
-          <Plot
-            data={[
-              {
-                values: values,
-                labels: tickers,
-                type: 'pie'
-              }
-            ]}
-            layout={{
-              width: 800,
-              height: 680
-            }}
-          />
-        )}
-      </div>
+      {graph && (
+        <button className="position-list-button" onClick={(e) => setGraphOff()}>
+          {' '}
+          List
+        </button>
+      )}
+      {graph && (
+        <Plot
+          data={[
+            {
+              values: values,
+              labels: tickers,
+              type: 'pie'
+            }
+          ]}
+          layout={{
+            width: 700,
+            height: 580
+          }}
+        />
+      )}
 
-      <div className="positions-bar-chart">
-        {bar && (
-          <button className="position-list-button" onClick={(e) => setBarOff()}>
-            List
-          </button>
-        )}
-        {bar && (
-          <Plot
-            data={[
-              {
-                x: tickers,
-                y: values,
-                type: 'bar'
-              }
-            ]}
-            layout={{
-              width: 800,
-              height: 680
-            }}
-          />
-        )}
-      </div>
+      {bar && (
+        <button className="position-list-button" onClick={(e) => setBarOff()}>
+          List
+        </button>
+      )}
+      {bar && (
+        <Plot
+          data={[
+            {
+              x: tickers,
+              y: values,
+              type: 'bar'
+            }
+          ]}
+          layout={{
+            width: 700,
+            height: 580
+          }}
+        />
+      )}
 
       {!graph && !bar && (
         <table className="content-table">
@@ -168,4 +163,5 @@ const Portfolio = () => {
     </div>
   );
 };
+
 export default Portfolio;

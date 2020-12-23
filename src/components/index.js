@@ -17,6 +17,8 @@ import StockSearch from './StockSearch';
 import TotalShares from './TotalShares';
 import Tracking from './Tracking';
 import Trades from './Trades';
+import Cash from './Cash';
+import HomeGrid from './HomeGrid';
 
 export {
   About,
@@ -37,5 +39,7 @@ export {
   StockSearch,
   TotalShares,
   Tracking,
-  Trades
+  Trades,
+  Cash,
+  HomeGrid
 };
