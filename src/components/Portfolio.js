@@ -94,7 +94,6 @@ const Portfolio = () => {
     <div>
       {graph && (
         <button className="position-list-button" onClick={(e) => setGraphOff()}>
-          {' '}
           List
         </button>
       )}
