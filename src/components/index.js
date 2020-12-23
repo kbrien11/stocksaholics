@@ -1,5 +1,4 @@
 import About from './About';
-import Cash from './Cash';
 import Crypto from './Crypto';
 import Equity from './Equity';
 import History from './History';
@@ -22,7 +21,6 @@ import HomeGrid from './HomeGrid';
 
 export {
   About,
-  Cash,
   Crypto,
   Equity,
   History,

@@ -4,7 +4,7 @@
 }
 
 .stock-headline-container {
-  margin: 50px 50px 40px 50px;
+  margin: 30px 50px 0px 50px;
   padding: 10px 30px;
   display: flex;
   flex-direction: column;
@@ -65,6 +65,7 @@
     0px -12px 24px $color-card-shadow;
   margin-left: 30px;
   width: 275px;
+
   &-header {
     display: flex;
     justify-content: space-between;
@@ -129,5 +130,57 @@
     label {
       padding-bottom: 8px;
     }
+
+    &-numberbox {
+      display: table;
+      background-color: rgb(255, 255, 255);
+      border: 1px solid rgb(122, 126, 131);
+      margin-bottom: 0px;
+      border-radius: 8px;
+      padding: 1px;
+      height: 40px;
+      width: 240px;
+    }
+    input {
+      display: table;
+      background-color: rgb(255, 255, 255);
+      border-radius: 8px;
+      height: 40px;
+      text-align: right;
+      padding-right: 15px;
+      border: none;
+      width: 100%;
+    }
+    input:focus {
+      outline: none;
+    }
+    .numberbox-dollar-symbol {
+      display: table-cell;
+      vertical-align: middle;
+      font-size: 16px;
+      padding: 8px 4px 8px 10px;
+      width: 1%;
+    }
+  }
+  &-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px 20px 20px;
+  }
+  &-estimate {
+    font-weight: 500;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  &-button {
+    display: table;
+    background-color: $color-primary;
+    border-radius: 8px;
+    height: 42px;
+    width: 240px;
+    text-align: center;
+    margin: 0 20px 20px 20px;
+    border: none;
+    outline: none;
   }
 }
