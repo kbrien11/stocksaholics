@@ -5,7 +5,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 function OrderCard(props) {
   const [amount, setAmount] = useState('');
   const [estimatedQuantity, setEstimatedQuantity] = useState(0);
-  const [investInOption, setInvestInOption] = useState('');
+  const [investInOption, setInvestInOption] = useState('Dollars');
 
   const stock =
     props.stock &&
@@ -22,12 +22,15 @@ function OrderCard(props) {
   const handleAmountChange = (e) => {
     let amt = e.target.value;
     const numberRegEx = /^[0-9. ]+$/;
-    if (amt.match(numberRegEx)) {
-      amt = parseFloat(amt);
-      setEstimatedQuantity(amt * stock[2]);
-      setAmount(amt);
-    } else if (amt === '') {
+
+    if (amt === '') {
       setEstimatedQuantity(0);
+      setAmount(amt);
+    } else if (amt.match(numberRegEx)) {
+      amt = parseFloat(amt);
+      const est =
+        investInOption === 'Dollars' ? amt / stock[2] : amt * stock[2];
+      setEstimatedQuantity(est.toFixed(2));
       setAmount(amt);
     }
   };
@@ -41,6 +44,8 @@ function OrderCard(props) {
 
   const handleInvestRadioChange = (e) => {
     setInvestInOption(e.target.value);
+    setAmount('');
+    setEstimatedQuantity(0);
   };
 
   return (
