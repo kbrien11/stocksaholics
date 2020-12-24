@@ -35,7 +35,7 @@ const HomeHistory = () => {
 
   return (
     <div>
-      <table className='content-table-transactions'>
+      <table className="content-table-transactions">
         <thead>
           <tr>
             <th> Recent Transactions</th>

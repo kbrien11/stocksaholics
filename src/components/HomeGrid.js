@@ -57,13 +57,13 @@ const HomeGrid = () => {
 
   return (
     <div>
-      <div className='homebalance'>
+      <div className="homebalance">
         <h2> Total Equity</h2>
 
         <p>{'$' + updatedEquity + ''}</p>
       </div>
 
-      <table className='tracking-table'>
+      <table className="tracking-table">
         <thead>
           <tr>
             <th> Watchlist</th>
@@ -77,7 +77,7 @@ const HomeGrid = () => {
       </table>
 
       <div>
-        <table className='gainers-table'>
+        <table className="gainers-table">
           <thead>
             <tr>
               <th> Top Gainers</th>
@@ -92,7 +92,7 @@ const HomeGrid = () => {
           </tbody>
         </table>
 
-        <table className='losers-table'>
+        <table className="losers-table">
           <thead>
             <tr>
               <th> Top Losers</th>
@@ -108,10 +108,10 @@ const HomeGrid = () => {
         </table>
       </div>
 
-      <div className='homeColumn-transactions'>
+      <div className="homeColumn-transactions">
         <HomeHistory />
       </div>
-      <div className='homeColumn-positions'>
+      <div className="homeColumn-positions">
         <Portfolio />
       </div>
     </div>

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 const Trades = (props) => {
   return (
-    <div className='trade-content'>
-      <div class='tradeequity'>
+    <div className="trade-content">
+      <div class="tradeequity">
         <h3>
           {props.datas[5] === 'Market Deposit'
             ? '+' + '$' + props.datas[4]
@@ -12,7 +12,7 @@ const Trades = (props) => {
 
         <p>{props.datas[3]} Shares</p>
       </div>
-      <div class='trades'>
+      <div class="trades">
         <h3>
           {' '}
           <span>{props.datas[2]}</span>({props.datas[5]}){' '}

@@ -90,7 +90,7 @@ const Portfolio = () => {
   return (
     <div>
       {graph && (
-        <button className='position-list-button' onClick={(e) => setGraphOff()}>
+        <button className="position-list-button" onClick={(e) => setGraphOff()}>
           {' '}
           List
         </button>
@@ -112,7 +112,7 @@ const Portfolio = () => {
       )}
 
       {bar && (
-        <button className='position-list-button' onClick={(e) => setBarOff()}>
+        <button className="position-list-button" onClick={(e) => setBarOff()}>
           {' '}
           List
         </button>
@@ -134,7 +134,7 @@ const Portfolio = () => {
       )}
 
       {!graph && !bar && (
-        <table className='content-table'>
+        <table className="content-table">
           <thead>
             <tr>
               <th>
