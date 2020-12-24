@@ -30,8 +30,8 @@ const History = (props) => {
   });
 
   return (
-    <div className='trade-history-container'>
-      <table className='trade-history-table'>
+    <div className="trade-history-container">
+      <table className="trade-history-table">
         <thead>
           <tr>
             <th> Trades</th>

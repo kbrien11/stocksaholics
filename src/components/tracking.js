@@ -59,14 +59,14 @@ const Tracking = ({ ticker }) => {
 
   console.log(change);
   return (
-    <div className='rows'>
-      <div className='column'>
-        <div className='tracking'>
+    <div className="rows">
+      <div className="column">
+        <div className="tracking">
           <h2>
             {ticker} <span> ({change > 0 ? '+' + change : change})</span>
           </h2>
 
-          <div className='tracking-price'>
+          <div className="tracking-price">
             <h3> {'$' + price}</h3>
           </div>
 
@@ -88,7 +88,7 @@ const Tracking = ({ ticker }) => {
             }}
           />
         </div>
-        <hr className='v1'></hr>
+        <hr className="v1"></hr>
       </div>
     </div>
   );

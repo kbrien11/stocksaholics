@@ -70,25 +70,25 @@ const Crypto = () => {
 
   const currentPrice = data.toLocaleString();
   return (
-    <div class='cryptoInfo'>
+    <div class="cryptoInfo">
       <input
-        type='text'
-        placeholder='Symbol'
+        type="text"
+        placeholder="Symbol"
         onChange={(e) => setInputTicker(e.target.value)}
       />{' '}
       <br />
       {error && <p>crypto doesnt exist, try again</p>}
-      <button type='button' onClick={(e) => CryptoPrice()}>
+      <button type="button" onClick={(e) => CryptoPrice()}>
         {' '}
         Search
       </button>{' '}
       <br />
-      <div class='cryptoPrice'>
+      <div class="cryptoPrice">
         {data.length > 0 && <h3> Current Price:</h3>}
         <p>{data.length > 0 && '$' + currentPrice}</p>
         <div>
           {cryptoStats.length > 0 && (
-            <table className='tracking-table'>
+            <table className="tracking-table">
               <thead>
                 <tr>
                   <th> Name</th>

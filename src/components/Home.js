@@ -57,14 +57,14 @@ const Home = () => {
 
   return (
     <div>
-      <div className='homebalance'>
+      <div className="homebalance">
         <h2> Total Equity</h2>
 
         <p>{'$' + updatedEquity + ''}</p>
       </div>
 
-      <div className='home-watchlist-center'>
-        <table className='tracking-table'>
+      <div className="home-watchlist-center">
+        <table className="tracking-table">
           <thead>
             <tr>
               <th> Watchlist</th>
@@ -79,8 +79,8 @@ const Home = () => {
       </div>
 
       {/* <div className='home-gainer-loser-container'> */}
-      <div className='home-gainer-flex'>
-        <table className='gainers-table'>
+      <div className="home-gainer-flex">
+        <table className="gainers-table">
           <thead>
             <tr>
               <th> Top Gainers</th>
@@ -95,7 +95,7 @@ const Home = () => {
           </tbody>
         </table>
 
-        <table className='losers-table'>
+        <table className="losers-table">
           <thead>
             <tr>
               <th> Top Losers</th>
@@ -112,11 +112,11 @@ const Home = () => {
       </div>
       {/* </div> */}
 
-      <div className='homeRow'>
-        <div className='homeColumn-transactions'>
+      <div className="homeRow">
+        <div className="homeColumn-transactions">
           <HomeHistory />
         </div>
-        <div className='homeColumn-positions'>
+        <div className="homeColumn-positions">
           <Portfolio />
         </div>
       </div>

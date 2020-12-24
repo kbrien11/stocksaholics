@@ -50,23 +50,23 @@ const Cash = () => {
 
   return (
     <div>
-      <div className='deposit'>
+      <div className="deposit">
         <p> Would you like to deposit money into your account?</p>
         <input
-          placeholder='amount'
-          type='text'
+          placeholder="amount"
+          type="text"
           value={inputAmount}
           onChange={(e) => setAmount(e.target.value)}
         />
-        <button type='button' onClick={(e) => Deposit()}>
+        <button type="button" onClick={(e) => Deposit()}>
           {' '}
           Increase
         </button>
         {inputdeposit && <p> successfully addded!</p>}
       </div>
-      <div className='homebalance'>
+      <div className="homebalance">
         <h2> USD Balance</h2>
-        <hr color='black'></hr>
+        <hr color="black"></hr>
         <p>{'$' + dataBalance}</p>
       </div>
     </div>
