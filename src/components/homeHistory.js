@@ -22,6 +22,7 @@ const HomeHistory = () => {
   const limit_trades = trades.map((trade) => {
     return (
       <Trades
+        key={trade[2]}
         datas={trade}
         numberShares={trade[3]}
         ticker={trade[2]}
@@ -31,8 +32,6 @@ const HomeHistory = () => {
       />
     );
   });
-  console.log(limit_trades);
-
   return (
     <div>
       <table className="content-table-transactions">

@@ -53,6 +53,7 @@ const Portfolio = () => {
   const current_positions = positions.map((position) => {
     return (
       <Pos
+        key={position[0]}
         position={position}
         ticker={position[0]}
         numberShares={position[1]}
@@ -75,13 +76,15 @@ const Portfolio = () => {
     setBar();
   };
 
-  const tickers = graphPositions.map((position) => {
-    return position[0];
-  });
+  const tickers =
+    graphPositions &&
+    graphPositions.length > 0 &&
+    graphPositions.map((position) => position[0]);
 
-  const values = graphPositions.map((position) => {
-    return position[2];
-  });
+  const values =
+    graphPositions &&
+    graphPositions.length > 0 &&
+    graphPositions.map((position) => position[2]);
 
   console.log(tickers);
 
@@ -91,7 +94,6 @@ const Portfolio = () => {
     <div>
       {graph && (
         <button className="position-list-button" onClick={(e) => setGraphOff()}>
-          {' '}
           List
         </button>
       )}
@@ -113,7 +115,6 @@ const Portfolio = () => {
 
       {bar && (
         <button className="position-list-button" onClick={(e) => setBarOff()}>
-          {' '}
           List
         </button>
       )}
@@ -138,17 +139,14 @@ const Portfolio = () => {
           <thead>
             <tr>
               <th>
-                {' '}
-                Positions{' '}
+                Positions
                 <span>
                   <button onClick={(e) => setGraphOn()}>
-                    {' '}
                     <FaChartPie />
-                  </button>{' '}
+                  </button>
                   <button onClick={(e) => setBarOn()}>
-                    {' '}
                     <FaChartBar />
-                  </button>{' '}
+                  </button>
                   <br />
                 </span>
               </th>
@@ -164,4 +162,5 @@ const Portfolio = () => {
     </div>
   );
 };
+
 export default Portfolio;

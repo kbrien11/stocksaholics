@@ -1,19 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NavSearchBar from './NavSearchBar';
+import SearchContainer from './SearchContainer';
 
 const Navbar = () => {
   return (
-    <div className="navbar">
-      <div className="navbar-container">
+    <div className="navbar-container">
+      <div className="navbar-section-one">
         <h2 className="logo">
           <Link to="/home">
             <span className="text-primary"> Stocks</span>Aholics
           </Link>
         </h2>
-        <NavSearchBar />
+        <SearchContainer />
       </div>
-      <nav>
+      <nav className="navbar-links">
         <ul>
           <Link to="/stocks">
             <li>Stocks</li>

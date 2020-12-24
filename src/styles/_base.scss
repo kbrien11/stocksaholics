@@ -1,6 +1,9 @@
 $color-primary: #2ecc71;
 $color-primary-light: #7ed56f;
 $color-primary-dark: #1d8348;
+$color-card-bg: rgb(255, 255, 255);
+$color-card-shadow: rgba(0, 0, 0, 0.06);
+$color-card-border: rgb(227, 233, 237);
 
 // FONT VARIABLES
 $font-primary: 'Nunito', sans-serif;
@@ -12,13 +15,9 @@ $font-display: 'Josefin Sans', sans-serif;
   box-sizing: border-box;
 }
 
-.body {
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: -0.1px;
-  line-height: 20px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  content: 'width=device-width, initial-scale=1';
+body {
+  font-family: 'Roboto', sans-serif;
+  // background-color: #efefef;
 }
 
 .App {

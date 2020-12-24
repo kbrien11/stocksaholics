@@ -1,39 +1,10 @@
 @import './_base.scss';
-// @import './_utilities.scss'; Not used yet
 @import './_authorization.scss';
 @import './_navbar.scss';
 @import './_landingPage.scss';
-// Note: For windows operating system, use below syntax
-// SASS_PATH=./node_modules;./src
+@import './_stocks.scss';
+@import '../components/common/Accordion.scss';
 
-* {
-  box-sizing: border-box;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 .bodypurshase {
   background-color: inherit;
   width: 180px;

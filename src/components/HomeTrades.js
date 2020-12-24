@@ -5,7 +5,7 @@ import { FaArrowUp } from 'react-icons/fa';
 const Trades = ({ numberShares, ticker, equity, tradeAction, date }) => {
   const arrowUp = <FaArrowUp />;
   return (
-    <div class="trade-home">
+    <div className="trade-home">
       <div>
         {tradeAction === 'Market Deposit' ? (
           <h1>
