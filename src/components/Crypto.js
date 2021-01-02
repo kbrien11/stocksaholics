@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Plot from 'react-plotly.js';
 import CryptoDataTable from './CryptoDataTable';
+import CryptoNews from './CryptoNews';
+import CryptoExchangeVolume from './CryptoExchangeVolume';
+import CryptoMarketCap from './CryptoMarketCap';
 
 const Crypto = () => {
   const [inputTicker, setInputTicker] = useState('');
@@ -10,10 +13,13 @@ const Crypto = () => {
   const [cryptoStats, setCryptoStats] = useState([]);
   const [token, setToken] = useState(sessionStorage.getItem('token') || '');
   const [error, setError] = useState('');
+  const [cryptoImage, setCryptoImage] = useState(false);
+  const [news, setNews] = useState(false);
 
   const CryptoPrice = async () => {
     try {
       setError(false);
+      setCryptoImage();
       const response = await fetch(
         `http://127.0.0.1:5000/api/crypto_price/${inputTicker}/${token}`
       );
@@ -22,6 +28,8 @@ const Crypto = () => {
         setData(res.crypto);
         Chart();
         CryptoStats();
+        setCryptoImage(true);
+        setNews(true);
       } else {
         setError(true);
       }
@@ -68,6 +76,24 @@ const Crypto = () => {
   );
   console.log(results);
 
+  const track = async () => {
+    const endpoint = `http://localhost:5000/api/track/${slice}/${token}`;
+    const data = {
+      ticker: slice
+    };
+    const configs = {
+      method: 'POST',
+      mode: 'cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    };
+    const response = await fetch(endpoint, configs);
+    const res = await response.json();
+    console.log(res.token);
+  };
+
+  const image = `https://cryptoicons.org/api/icon/${slice}/200`;
+
   const currentPrice = data.toLocaleString();
   return (
     <div class="cryptoInfo">
@@ -83,33 +109,10 @@ const Crypto = () => {
         Search
       </button>{' '}
       <br />
-      <div class="cryptoPrice">
-        {data.length > 0 && <h3> Current Price:</h3>}
-        <p>{data.length > 0 && '$' + currentPrice}</p>
-        <div>
-          {cryptoStats.length > 0 && (
-            <table className="tracking-table">
-              <thead>
-                <tr>
-                  <th> Name</th>
-                  <th> FCAS Rating</th>
-                  <th> Score</th>
-                  <th> Market Score</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{cryptoStats[0]}</td>
-                  <td>{cryptoStats[1]}</td>
-                  <td>{cryptoStats[2]}</td>
-                  <td>{cryptoStats[3]}</td>
-                </tr>
-              </tbody>
-            </table>
-          )}
-        </div>
+      <div className="crypto-image">
+        {cryptoImage && <img src={image} height="50" width="60" />}
       </div>
-      <div>
+      <div className="crypto-chart">
         {data.length > 0 && (
           <Plot
             data={[
@@ -121,10 +124,53 @@ const Crypto = () => {
                 marker: { color: 'lightGreen', backgroundColor: 'blue' }
               }
             ]}
-            layout={{ width: 720, height: 440, title: slice }}
+            layout={{ width: 950, height: 440, title: '$' + '' + currentPrice }}
           />
         )}
+
+        {/* {data.length > 0 && (
+          <button type="button" onClick={(e) => track()}>
+            {' '}
+            Add {slice} to Watchlist
+          </button>
+        )}
+        <br /> */}
       </div>
+      <div>
+        {/* {cryptoStats.length > 0 && (
+          <table className="crypto-table">
+            <thead>
+              <tr>
+                <th> Name</th>
+                <th>Price</th>
+                <th> FCAS Rating</th>
+                <th> Score</th>
+                <th> Market Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{cryptoStats[0]}</td>
+                <td>{data.length > 0 && '$' + currentPrice}</td>
+                <td>{cryptoStats[1]}</td>
+                <td>{cryptoStats[2]}</td>
+                <td>{cryptoStats[3]}</td>
+              </tr>
+            </tbody>
+          </table>
+        )} */}
+      </div>
+      {news && (
+        <div className="Crypto-Home-volume">
+          <CryptoExchangeVolume />
+        </div>
+      )}
+      {news && (
+        <div className="Crypto-Home-Supply">
+          <CryptoMarketCap />
+        </div>
+      )}
+      {news && <CryptoNews />}
     </div>
   );
 };
