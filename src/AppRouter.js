@@ -8,8 +8,8 @@ import {
   HomeGrid,
   Home,
   Navbar,
-  Portfolio,
   Cash,
+  StockPage,
   Stocks
 } from './components';
 import { LandingPage } from './components/landingPage';
@@ -25,30 +25,31 @@ function AppRouter() {
     <div>
       <Switch>
         {/* Routes placed here are available to all visitors */}
-        <Route exact path='/' component={LandingPage} />
-        <Route exact path='/signup' component={Signup} />
-        <Route exact path='/about' component={About} />
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/about" component={About} />
         <Route
           exact
-          path='/login'
+          path="/login"
           component={() => <Login handleLogin={handleLogin} />}
         />
         {(isLoggedIn || !!sessionStorage.getItem('token')) && (
-          <div>
+          <React.Fragment>
             <Navbar />
             <Switch>
-              <Route exact path='/home' component={Home} />
-              <Route exact path='/stocks' component={Stocks} />
-              <Route exact path='/crypto' component={Crypto} />
-              <Route exact path='/history' component={History} />
-              <Route exact path='/cash' component={Cash} />
+              <Route exact path="/home" component={Home} />
+              <Route exact path="/stocks" component={Stocks} />
+              <Route exact path="/stocks/:ticker" component={StockPage} />
+              <Route exact path="/crypto" component={Crypto} />
+              <Route exact path="/history" component={History} />
+              <Route exact path="/cash" component={Cash} />
             </Switch>
-          </div>
+          </React.Fragment>
         )}
         {/* Displays Login as a fallback */}
         <Route
           exact
-          path='/login'
+          path="/login"
           component={() => <Login handleLogin={handleLogin} />}
         />
       </Switch>

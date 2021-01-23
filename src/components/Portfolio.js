@@ -54,7 +54,11 @@ const Portfolio = () => {
   const current_positions = positions.map((position) => {
     return (
       <Pos
+<<<<<<< HEAD
         key={position.pk}
+=======
+        key={position[0]}
+>>>>>>> abac3e5d5b30ee6661144c959cbe87bc5130c270
         position={position}
         ticker={position.ticker}
         numberShares={position.number_shares}
@@ -84,12 +88,20 @@ const Portfolio = () => {
   const tickers =
     graphPositions &&
     graphPositions.length > 0 &&
+<<<<<<< HEAD
     graphPositions.map((position) => position.ticker);
+=======
+    graphPositions.map((position) => position[0]);
+>>>>>>> abac3e5d5b30ee6661144c959cbe87bc5130c270
 
   const values =
     graphPositions &&
     graphPositions.length > 0 &&
+<<<<<<< HEAD
     graphPositions.map((position) => position.equity);
+=======
+    graphPositions.map((position) => position[2]);
+>>>>>>> abac3e5d5b30ee6661144c959cbe87bc5130c270
 
   console.log(tickers);
 

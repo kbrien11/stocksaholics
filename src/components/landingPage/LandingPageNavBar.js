@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const LandingPageNavbar = () => {
   return (
-    <div className="navbar">
+    <div className="landing-navbar-container">
       <h2>
         <span className="text-primary"> Stocks</span>Aholics
       </h2>

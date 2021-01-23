@@ -23,7 +23,11 @@ const HomeHistory = () => {
   const limit_trades = trades.map((trade) => {
     return (
       <Trades
+<<<<<<< HEAD
         key={trade['pk']}
+=======
+        key={trade[2]}
+>>>>>>> abac3e5d5b30ee6661144c959cbe87bc5130c270
         datas={trade}
         numberShares={trade['number_shares']}
         ticker={trade['ticker']}

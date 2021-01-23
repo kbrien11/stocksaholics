@@ -4,9 +4,12 @@ import CryptoDataTable from './CryptoDataTable';
 import CryptoNews from './CryptoNews';
 import CryptoExchangeVolume from './CryptoExchangeVolume';
 import CryptoMarketCap from './CryptoMarketCap';
+<<<<<<< HEAD
 import CryptoExchangeData from './CryptoExchangeData';
 import CryptoCoinSingle from './CryptoCoinSingle';
 import Bitcoin from './Bitcoin';
+=======
+>>>>>>> abac3e5d5b30ee6661144c959cbe87bc5130c270
 
 const Crypto = () => {
   const [inputTicker, setInputTicker] = useState('');
@@ -19,12 +22,15 @@ const Crypto = () => {
   const [error, setError] = useState('');
   const [cryptoImage, setCryptoImage] = useState(false);
   const [news, setNews] = useState(false);
+<<<<<<< HEAD
 
   useEffect(() => {
     Coins();
   }, []);
 
   const tickerUppercase = inputTicker.toUpperCase();
+=======
+>>>>>>> abac3e5d5b30ee6661144c959cbe87bc5130c270
 
   const CryptoPrice = async () => {
     try {
@@ -37,9 +43,15 @@ const Crypto = () => {
       if (res.crypto) {
         setData(res.crypto);
         Chart();
+<<<<<<< HEAD
         setCryptoImage(true);
         setNews(true);
         setCryptoStats(false);
+=======
+        CryptoStats();
+        setCryptoImage(true);
+        setNews(true);
+>>>>>>> abac3e5d5b30ee6661144c959cbe87bc5130c270
       } else {
         setError(true);
       }
@@ -111,6 +123,24 @@ const Crypto = () => {
 
   const image = `https://cryptoicons.org/api/icon/${tickerUppercase}/200`;
 
+  const track = async () => {
+    const endpoint = `http://localhost:5000/api/track/${slice}/${token}`;
+    const data = {
+      ticker: slice
+    };
+    const configs = {
+      method: 'POST',
+      mode: 'cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    };
+    const response = await fetch(endpoint, configs);
+    const res = await response.json();
+    console.log(res.token);
+  };
+
+  const image = `https://cryptoicons.org/api/icon/${slice}/200`;
+
   const currentPrice = data.toLocaleString();
   return (
     <div class="cryptoInfo">
@@ -135,6 +165,7 @@ const Crypto = () => {
         </span>
       )}
       <br />
+<<<<<<< HEAD
       {cryptoStats && (
         <table className="exchanges-table">
           <thead>
@@ -223,11 +254,17 @@ const Crypto = () => {
           </tbody>
         </table>
       )}
+=======
+>>>>>>> abac3e5d5b30ee6661144c959cbe87bc5130c270
       <div className="crypto-image">
         {cryptoImage && <img src={image} height="50" width="60" />}
       </div>
       <div className="crypto-chart">
+<<<<<<< HEAD
         {chartData.length > 0 && (
+=======
+        {data.length > 0 && (
+>>>>>>> abac3e5d5b30ee6661144c959cbe87bc5130c270
           <Plot
             data={[
               {
@@ -238,7 +275,11 @@ const Crypto = () => {
                 marker: { color: 'lightGreen', backgroundColor: 'blue' }
               }
             ]}
+<<<<<<< HEAD
             layout={{ width: 950, height: 440, title: '$' + '' + data }}
+=======
+            layout={{ width: 950, height: 440, title: '$' + '' + currentPrice }}
+>>>>>>> abac3e5d5b30ee6661144c959cbe87bc5130c270
           />
         )}
 
@@ -249,6 +290,7 @@ const Crypto = () => {
           </button>
         )}
         <br /> */}
+<<<<<<< HEAD
       </div>
       <div>
         {/* {cryptoStats.length > 0 && (
@@ -274,12 +316,40 @@ const Crypto = () => {
           </table>
         )} */}
       </div>
+=======
+      </div>
+      <div>
+        {/* {cryptoStats.length > 0 && (
+          <table className="crypto-table">
+            <thead>
+              <tr>
+                <th> Name</th>
+                <th>Price</th>
+                <th> FCAS Rating</th>
+                <th> Score</th>
+                <th> Market Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{cryptoStats[0]}</td>
+                <td>{data.length > 0 && '$' + currentPrice}</td>
+                <td>{cryptoStats[1]}</td>
+                <td>{cryptoStats[2]}</td>
+                <td>{cryptoStats[3]}</td>
+              </tr>
+            </tbody>
+          </table>
+        )} */}
+      </div>
+>>>>>>> abac3e5d5b30ee6661144c959cbe87bc5130c270
       {news && (
         <div className="Crypto-Home-volume">
           <CryptoExchangeVolume />
         </div>
       )}
       {news && (
+<<<<<<< HEAD
         <div className="crypto-supply-exchange-flex">
           <div className="Crypto-Home-Supply">
             <CryptoMarketCap />
@@ -287,6 +357,10 @@ const Crypto = () => {
           <div className="crypto-home-exchange">
             <CryptoExchangeData />
           </div>
+=======
+        <div className="Crypto-Home-Supply">
+          <CryptoMarketCap />
+>>>>>>> abac3e5d5b30ee6661144c959cbe87bc5130c270
         </div>
       )}
       {news && <CryptoNews />}

@@ -3,6 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-regular-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.13",
+    "lodash": "^4.17.20",
+>>>>>>> abac3e5d5b30ee6661144c959cbe87bc5130c270
     "moment": "^2.24.0",
     "plotly.js": "^1.57.1",
     "react": "^16.13.1",
