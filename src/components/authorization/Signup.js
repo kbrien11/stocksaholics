@@ -8,7 +8,7 @@ function SignUp() {
   const [inputLast_name, setLastName] = useState('');
 
   const sendData = async () => {
-    const endpoint = 'http://localhost:5000/api/create';
+    const endpoint = 'http://localhost:5000/api/create_user';
     const data = {
       email: inputEmail,
       password: inputPassword,

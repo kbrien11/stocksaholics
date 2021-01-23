@@ -13,7 +13,7 @@ const Login = (props) => {
   const signin = async () => {
     setIsError(false);
     setToken('');
-    const endpoint = 'http://127.0.0.1:5000/api/log';
+    const endpoint = 'http://127.0.0.1:5000/api/login';
     const data = {
       email: inputEmail,
       password: inputPassword
@@ -26,9 +26,11 @@ const Login = (props) => {
     };
     const response = await fetch(endpoint, configs);
     const res = await response.json();
-    if (res.token) {
-      sessionStorage.setItem('token', res.token);
-      setToken(res.token);
+    console.log(res);
+    if (res) {
+      sessionStorage.setItem('token', res.api_key);
+      console.log(res.api_key);
+      setToken(res.api_key);
       props.handleLogin();
       history.push('/home');
     } else {

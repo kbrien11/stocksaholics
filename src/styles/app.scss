@@ -1,39 +1,10 @@
 @import './_base.scss';
-// @import './_utilities.scss'; Not used yet
 @import './_authorization.scss';
 @import './_navbar.scss';
 @import './_landingPage.scss';
-// Note: For windows operating system, use below syntax
-// SASS_PATH=./node_modules;./src
+@import './_stocks.scss';
+// @import '../components/common/Accordion.scss';
 
-* {
-  box-sizing: border-box;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 .bodypurshase {
   background-color: inherit;
   width: 180px;
@@ -247,13 +218,10 @@
 
 .homeColumn-transactions {
   flex: 1;
-  padding-left: 15%;
-  margin-top: 15%;
+  padding-left: 40px;
 }
 .homeColumn-positions {
   flex: 1;
-  padding-right: 15%;
-  margin-top: 15%;
 }
 
 .homeWrapper {
@@ -275,8 +243,25 @@
 
 .homeRow {
   display: flex;
-
   margin: auto;
+  max-width: 800px;
+  background-color: whitesmoke;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  padding: 20px 20px;
+}
+// .position-transactions-container {
+//   width: 1000px;
+//   margin: auto;
+//   background-color: lightgray;
+// }
+.usd-chard-container {
+  margin: auto;
+  max-width: 800px;
+  background-color: whitesmoke;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  padding: 20px 20px;
 }
 .rowTwo:after {
   content: '';
@@ -402,13 +387,17 @@
   clear: both;
 }
 .tracking {
-  padding-right: 15px;
+  padding-right: 25px;
   padding-bottom: 15px;
   padding-top: 10px;
+  border: solid;
+  border-radius: 15px 5px;
+  border-color: lightgray;
+  max-width: 500px;
 }
 
 .tracking h2 {
-  float: center;
+  float: right;
   font-size: 18px;
 }
 .tracking span {
@@ -426,7 +415,7 @@
 .tracking h3 {
   float: left;
   margin-top: 20px;
-
+  padding-left: 10px;
   font-weight: bold;
   font-size: 18px;
   color: green;
@@ -620,31 +609,350 @@
   color: red;
   margin-left: 5%;
 }
-.cryptoInfo button {
+.crypto-flex button {
   border-radius: 15px;
-  margin-top: 20px;
+  margin-top: 3%;
+
   font-weight: bold;
   font-size: 15px;
-  width: 15%;
-  margin-left: 5%;
+  width: 11%;
   background-color: green;
   color: whitesmoke;
 }
-.cryptoInfo button:hover {
+.crypto-flex button:hover {
   background-color: black;
   /* border-bottom: 7px solid darkgray;
 overflow: hidden; */
 }
 
-.cryptoPrice h3 {
-  margin-left: 60%;
-  font-size: 30px;
+// crypto page styling
+
+.crypto-image {
+  margin-top: 150px;
+  margin: auto;
 }
-.cryptoPrice p {
-  margin-left: 60%;
-  font-size: 20px;
+
+.crypto-button {
+  float: left;
+}
+
+.crypto-flex {
+  display: flex;
+}
+
+.crypto-table {
+  border-collapse: collapse;
+  margin: 150px 15px 10px 10px;
+  min-height: 250px;
+  flex: 1;
+  background-color: honeydew;
+  font-size: 0.9em;
+  min-width: 150px;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.crypto-table thead tr {
+  background-color: black;
+  color: #ffffff;
+  text-align: left;
   font-weight: bold;
-  color: green;
+  font-size: 20px;
+}
+.crypto-table th,
+.crypto-table td {
+  padding: 12px 12px;
+  font-weight: bold;
+}
+.crypto-table th:hover {
+  border-radius: solid 2px green;
+}
+.crypto-table td:hover {
+  border-radius: solid 2px green;
+}
+.crypto-table tbody tr {
+  border-bottom: 1px solid green;
+}
+
+.crypto-chart {
+  margin: auto;
+  margin-top: 50px;
+}
+
+.article-flex {
+  display: flex;
+}
+
+.article-image {
+  flex: 1;
+
+  padding-bottom: 30px;
+}
+// .article-image img {
+//   min-height: 100%;
+//   // background-position: center;
+//   // background-repeat: no-repeat;
+//   // background-size: cover;
+// }
+.article {
+  flex: 1;
+  margin-top: 25px;
+  // padding-left: 10px;
+  // margin-top: 10px;
+  // margin-bottom: 10px;
+}
+
+.article a {
+  text-decoration: none;
+  color: darkblue;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.article a:hover {
+  color: blue;
+  font-size: 20px;
+}
+.article p {
+  color: black;
+  margin-top: 10px;
+  font-size: 9px;
+}
+.article-container p {
+  float: right;
+}
+
+.gemini-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  flex: 1;
+  font-size: 0.9em;
+  max-width: 200px;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.gemini-table thead tr {
+  background-color: lightskyblue;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+  font-size: 20px;
+}
+.gemini-table th,
+.gemini-table td {
+  padding: 20px 15px;
+  margin-bottom: 20px;
+}
+.gemini-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.coinbase-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  flex: 1;
+  font-size: 0.9em;
+  max-width: 200px;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.coinbase-table thead tr {
+  background-color: darkblue;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+  font-size: 20px;
+}
+.coinbase-table th,
+.coinbase-table td {
+  padding: 20px 15px;
+  margin-bottom: 20px;
+}
+.coinbase-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.binance-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  flex: 1;
+  font-size: 0.9em;
+  max-width: 200px;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.binance-table thead tr {
+  background-color: black;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+  font-size: 20px;
+}
+.binance-table th,
+.binance-table td {
+  padding: 20px 15px;
+  margin-bottom: 20px;
+}
+.binance-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.Crypto-volume-flex {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+}
+
+.gemini-volume {
+  flex: 1;
+}
+.binance-volume {
+  flex: 1;
+}
+.coinbase-volume {
+  flex: 1;
+}
+.Crypto-Home-volume {
+  margin: auto;
+  max-width: 700px;
+  background-color: whitesmoke;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  padding: 20px 20px;
+}
+.marketCap-container {
+  margin: auto;
+  max-width: 700px;
+  background-color: whitesmoke;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  padding: 20px 20px;
+}
+
+.top-exchange-table {
+  border-collapse: collapse;
+  margin: auto;
+  margin-bottom: 20px;
+  font-size: 0.9em;
+  max-width: 400px;
+  max-height: 300px;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.top-exchange-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+  font-size: 20px;
+}
+.top-exchange-table th,
+.top-exchange-table td {
+  padding: 20px 15px;
+  margin-bottom: 20px;
+}
+.top-exchange-table tbody tr {
+  border-bottom: 1px solid;
+}
+
+.top-exchange-table tbody tr:hover {
+  background-color: #dddddd;
+}
+
+.supply-table {
+  border-collapse: collapse;
+  margin: auto;
+  margin-bottom: 20px;
+  font-size: 0.9em;
+  max-width: 400px;
+  max-height: 300px;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.supply-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+  font-size: 20px;
+}
+.supply-table th,
+.supply-table td {
+  padding: 20px 15px;
+  margin-bottom: 50px;
+}
+.supply-table tbody tr {
+  border-bottom: 1px solid black;
+}
+
+.supply-volume {
+  margin: auto;
+}
+.crypto-supply-flex {
+  display: flex;
+}
+.crypto-supply {
+  flex: 1;
+  margin-bottom: 10px;
+}
+.crypto-image {
+  flex: 1;
+  margin-bottom: 10px;
+}
+.crypto-supply-name {
+  flex: 1;
+  margin-bottom: 10px;
+}
+.crypto-supply-name p {
+  color: black;
+}
+.crypto-supply p {
+  color: black;
+}
+
+.content-table-articles {
+  border-collapse: collapse;
+  margin: auto;
+  font-size: 0.9em;
+  max-width: 700px;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table-articles thead tr {
+  background-color: #2b37e2;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+  font-size: 20px;
+}
+.content-table-articles th,
+.content-table-articles td {
+  padding: 12px 15px;
+}
+.content-table-articles tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+.content-table-articles tbody td:nth-of-type(even) {
+  background-color: #f3f3f3;
+  padding-top: 10px;
+  padding-top: 10px;
+  border-radius: 10px;
+}
+.content-table-articles tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
 }
 
 .home-trade-buy {
@@ -661,6 +969,15 @@ overflow: hidden; */
   font-size: 50px;
   font-weight: bold;
 }
+
+.trades-buy {
+  color: green;
+  font-weight: bold;
+}
+.trades-sell {
+  color: rgb(240, 10, 10);
+  font-weight: bold;
+}
 .home-trade-transaction p {
   font-size: 12px;
   float: left;
@@ -670,6 +987,10 @@ overflow: hidden; */
   color: rgb(36, 110, 76);
   font-size: 12px;
   font-weight: bold;
+}
+
+.position-graph {
+  padding-left: 10px;
 }
 
 .position-list-button {
@@ -701,7 +1022,7 @@ overflow: hidden; */
   border-collapse: collapse;
   margin: 25px 0;
   font-size: 0.9em;
-  min-width: 500px;
+  max-width: 500px;
   border-radius: 10px 10px 0 0;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -735,7 +1056,7 @@ overflow: hidden; */
   border-collapse: collapse;
   margin: 25px 0;
   font-size: 0.9em;
-  min-width: 500px;
+  max-width: 300px;
   border-radius: 10px 10px 0 0;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -779,6 +1100,7 @@ overflow: hidden; */
   color: #009879;
   margin-left: 10%;
 }
+
 .losers-by-ticker-ticker {
   color: black;
   margin-bottom: 10px;
@@ -793,6 +1115,233 @@ overflow: hidden; */
   color: red;
   margin-left: 10%;
 }
+.crypto-data-asset {
+  color: black;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.crypto-data-asset:nth-of-type(even) {
+  background-color: lightgray;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+.crypto-data-asset span {
+  color: black;
+  margin-left: 10%;
+}
+
+.crypto-volume-image {
+  float: right;
+  margin-top: 10px;
+}
+
+.exchanges-table-headers {
+  display: flex;
+  justify-content: space-around;
+}
+.Exchanges-table-price-header {
+  flex: 1;
+  padding-left: 40px;
+  margin-left: 10px;
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.Exchanges-table-price-header-hourly-change {
+  flex: 1;
+  margin-left: 80px;
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.Exchanges-table-price-header-hourly-change h3 {
+  margin-left: 50px;
+}
+
+.btc-crypto-table-header span {
+  float: left;
+}
+
+.exchanges-table {
+  border-collapse: collapse;
+  margin: auto;
+  margin-bottom: 50px;
+  margin-top: 70px;
+  font-size: 0.9em;
+  min-width: 700px;
+  max-height: 400px;
+  border-radius: 20px 10px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.exchanges-table thead tr {
+  background-color: inherit;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+.exchanges-table thead th {
+  position: sticky;
+  top: 0px;
+}
+.exchanges-table th,
+.exchanges-table td {
+  padding: 30px 35px;
+  margin-bottom: 20px;
+  border-bottom: solid;
+  border-bottom-color: lightgray;
+}
+.exchanges-table td:hover {
+  background-color: whitesmoke;
+}
+.exchanges-table tbody tr {
+  margin-bottom: 10px;
+}
+.crypto-supply-exchange-flex {
+  display: flex;
+  margin: auto;
+  max-width: 700px;
+  background-color: whitesmoke;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  padding: 20px 20px;
+}
+.crypto-home-exchange {
+  flex: 1;
+}
+.Crypto-Home-Supply {
+  flex: 1;
+}
+
+.crypto-exchange-data {
+  display: flex;
+}
+.crypto-exchange-bio {
+  flex: 1;
+}
+.crypto-exchange-weeklyChart {
+  flex: 1;
+}
+.chart-button {
+  flex: 1;
+}
+.crypto-exchange-symbol {
+  flex: 1;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  margin-top: -15px;
+}
+.crypto-exchange-symbol span {
+  padding-right: 10px;
+  margin-top: 5px;
+}
+.crypto-exchange-price {
+  flex: 1;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+}
+.crypto-exchange-supply {
+  flex: 1;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+}
+.crypto-exchange-volume {
+  flex: 1;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 13px;
+}
+.crypto-exchange-market {
+  flex: 1;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+}
+.crypto-exchange-dayChange {
+  flex: 1;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+}
+.dayChangeNeg {
+  color: red;
+}
+.dayChangePos {
+  color: darkgreen;
+}
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  background-color: white;
+
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content button {
+  color: black;
+  background-color: inherit;
+  padding: 8px 10px;
+  max-width: 200px;
+  text-decoration: none;
+  border: none;
+  display: block;
+}
+.dropdown-content button:hover {
+  background-color: whitesmoke;
+}
+
+.crypto-exchange-24-change {
+  flex: 1;
+  margin-bottom: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+}
+.crypto-exchange-name p {
+  font-size: 9px;
+  color: black;
+  font-weight: bold;
+}
+
+.crypto-exchange-gradepoints {
+  flex: 1;
+  margin-bottom: 10px;
+}
+.crypto-exchange-url {
+  flex: 1;
+  margin-bottom: 10px;
+}
+.crypto-exchange-url:hover {
+  border-bottom: solid 2px gray;
+}
+.crypto-exchange-url a {
+  text-decoration: none;
+  color: blue;
+}
+
 .home-watchlist-transactions-positions {
   display: flex;
 }
@@ -807,28 +1356,16 @@ overflow: hidden; */
 .tracking-table {
   border-collapse: collapse;
   margin: 25px 0;
-
+  min-height: 550px;
   font-size: 0.9em;
   min-width: 750px;
   border-radius: 10px 10px 0 0;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 20px rgba(247, 151, 26, 0.15);
 }
 
-// @media screen and (max-width: 900px) {
-//   .tracking-column {
-//     width: 50%;
-//   }
-// }
-
-// @media screen and (max-width: 600px) {
-//   .tracking-column {
-//     width: 100%;
-//   }
-// }
-
 .tracking-table thead tr {
-  background-color: #009879;
+  background-color: #ffa742;
   color: #ffffff;
   text-align: left;
   font-weight: bold;

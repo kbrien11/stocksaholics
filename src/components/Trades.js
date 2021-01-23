@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 
-const Trades = (props) => {
+const Trades = ({ trade_type, ticker, number_shares, unix_time, equity }) => {
   return (
     <div className="trade-content">
       <div class="tradeequity">
         <h3>
-          {props.datas[5] === 'Market Deposit'
-            ? '+' + '$' + props.datas[4]
-            : '-' + '$' + props.datas[4]}
+          {
+            (trade_type = 'Market Deposit' ? (
+              <div className="trades-buy">{'+' + '$' + equity}</div>
+            ) : (
+              <div className="trades-sell"> {'-' + '$' + equity}</div>
+            ))
+          }
         </h3>
 
-        <p>{props.datas[3]} Shares</p>
+        <p>{number_shares} Shares</p>
       </div>
       <div class="trades">
-        <h3>
-          {' '}
-          <span>{props.datas[2]}</span>({props.datas[5]}){' '}
-        </h3>
-        <p> {props.datas[6]}</p>
+        <h3>{ticker}</h3>
+        <p> {unix_time}</p>
       </div>
     </div>
   );

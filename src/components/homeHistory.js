@@ -13,7 +13,8 @@ const HomeHistory = () => {
     try {
       const response = await fetch(`http://127.0.0.1:5000/api/${token}/recent`);
       const res = await response.json();
-      setTrades(res.trades);
+      setTrades(res);
+      console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -22,31 +23,32 @@ const HomeHistory = () => {
   const limit_trades = trades.map((trade) => {
     return (
       <Trades
+        key={trade['pk']}
         datas={trade}
-        numberShares={trade[3]}
-        ticker={trade[2]}
-        equity={trade[4]}
-        tradeAction={trade[5]}
-        date={trade[6]}
+        numberShares={trade['number_shares']}
+        ticker={trade['ticker']}
+        equity={trade['equity']}
+        tradeAction={trade['trade_type']}
+        date={trade['unix_time']}
       />
     );
   });
-  console.log(limit_trades);
-
   return (
     <div>
-      <table className="content-table-transactions">
-        <thead>
-          <tr>
-            <th> Recent Transactions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{limit_trades}</td>
-          </tr>
-        </tbody>
-      </table>
+      {limit_trades.length > 0 && (
+        <table className="content-table-transactions">
+          <thead>
+            <tr>
+              <th> Recent Transactions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{limit_trades}</td>
+            </tr>
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };

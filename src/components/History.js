@@ -13,8 +13,8 @@ const History = (props) => {
     try {
       const response = await fetch(`http://127.0.0.1:5000/api/${token}/trades`);
       const res = await response.json();
-      setDatas(res.trades);
-      console.log(res.trades);
+      setDatas(res);
+      console.log(res);
       // for( const obj of res.trades){
       //     if((obj[5]) ='Market Buy') {
       //        setGreen(true)
@@ -26,7 +26,14 @@ const History = (props) => {
   };
 
   const trades = datas.map((i) => {
-    return <Trades datas={i} />;
+    return (
+      <Trades
+        ticker={i.ticker}
+        equity={i.equity}
+        number_shares={i.number_shares}
+        unix_time={i.unix_time}
+      />
+    );
   });
 
   return (

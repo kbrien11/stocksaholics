@@ -28,7 +28,7 @@ const Tracking = ({ ticker }) => {
       const res = await response.json();
       console.log(res);
 
-      if (res.current_price) {
+      if (res) {
         setDatas(res.current_price);
         setChange(res.change);
         console.log(res.current_price);
@@ -66,9 +66,7 @@ const Tracking = ({ ticker }) => {
             {ticker} <span> ({change > 0 ? '+' + change : change})</span>
           </h2>
 
-          <div className="tracking-price">
-            <h3> {'$' + price}</h3>
-          </div>
+          <h3> {'$' + price}</h3>
 
           <Plot
             data={[
@@ -83,12 +81,11 @@ const Tracking = ({ ticker }) => {
               }
             ]}
             layout={{
-              width: 300,
-              height: 280
+              width: 220,
+              height: 320
             }}
           />
         </div>
-        <hr className="v1"></hr>
       </div>
     </div>
   );

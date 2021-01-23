@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Pos from './Position';
 import Plot from 'react-plotly.js';
+import StockNews from './StockNews';
 import { FaChartPie, FaChartBar } from 'react-icons/fa';
 
 const Portfolio = () => {
@@ -29,9 +30,9 @@ const Portfolio = () => {
         `http://127.0.0.1:5000/api/${token}/positions`
       );
       const res = await response.json();
-      setPositions(res.Positions);
-      setGraphPositions(res.Positions_for_graph);
-      console.log(res.Positions);
+      setPositions(res);
+      setGraphPositions(res);
+      console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -53,12 +54,17 @@ const Portfolio = () => {
   const current_positions = positions.map((position) => {
     return (
       <Pos
+        key={position.pk}
         position={position}
-        ticker={position[0]}
-        numberShares={position[1]}
-        equity={position[2]}
+        ticker={position.ticker}
+        numberShares={position.number_shares}
+        equity={position.equity}
       />
     );
+  });
+
+  const news = positions.map((i) => {
+    return <StockNews ticker={i[0]} />;
   });
 
   const setGraphOn = () => {
@@ -75,13 +81,15 @@ const Portfolio = () => {
     setBar();
   };
 
-  const tickers = graphPositions.map((position) => {
-    return position[0];
-  });
+  const tickers =
+    graphPositions &&
+    graphPositions.length > 0 &&
+    graphPositions.map((position) => position.ticker);
 
-  const values = graphPositions.map((position) => {
-    return position[2];
-  });
+  const values =
+    graphPositions &&
+    graphPositions.length > 0 &&
+    graphPositions.map((position) => position.equity);
 
   console.log(tickers);
 
@@ -91,64 +99,62 @@ const Portfolio = () => {
     <div>
       {graph && (
         <button className="position-list-button" onClick={(e) => setGraphOff()}>
-          {' '}
           List
         </button>
       )}
-      {graph && (
-        <Plot
-          data={[
-            {
-              values: values,
-              labels: tickers,
-              type: 'pie'
-            }
-          ]}
-          layout={{
-            width: 700,
-            height: 580
-          }}
-        />
-      )}
-
+      <div className="position-graph">
+        {graph && (
+          <Plot
+            data={[
+              {
+                values: values,
+                labels: tickers,
+                type: 'pie'
+              }
+            ]}
+            layout={{
+              width: 400,
+              height: 280
+            }}
+          />
+        )}
+      </div>
       {bar && (
         <button className="position-list-button" onClick={(e) => setBarOff()}>
-          {' '}
           List
         </button>
       )}
-      {bar && (
-        <Plot
-          data={[
-            {
-              x: tickers,
-              y: values,
-              type: 'bar'
-            }
-          ]}
-          layout={{
-            width: 700,
-            height: 580
-          }}
-        />
-      )}
+      <div className="position-graph">
+        {bar && (
+          <Plot
+            data={[
+              {
+                x: tickers,
+                y: values,
+                type: 'bar'
+              }
+            ]}
+            layout={{
+              width: 400,
+              height: 280
+            }}
+          />
+        )}
+      </div>
 
-      {!graph && !bar && (
+      {!graph && !bar && current_positions.length > 0 && (
         <table className="content-table">
           <thead>
             <tr>
               <th>
-                {' '}
-                Positions{' '}
+                Positions
                 <span>
                   <button onClick={(e) => setGraphOn()}>
-                    {' '}
                     <FaChartPie />
-                  </button>{' '}
+                  </button>
                   <button onClick={(e) => setBarOn()}>
-                    {' '}
                     <FaChartBar />
-                  </button>{' '}
+                  </button>
                   <br />
                 </span>
               </th>
@@ -164,4 +170,5 @@ const Portfolio = () => {
     </div>
   );
 };
+
 export default Portfolio;

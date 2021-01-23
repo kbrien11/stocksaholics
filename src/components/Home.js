@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { HomeHistory, Portfolio, Tracking, Trades } from './index';
 import Gainers from './Gainers';
 import Losers from './Losers';
+import UsdChart from './UsdChart';
+import StockNews from './StockNews';
+import moment from 'moment';
+
+import HomeEquityChart from './HomeEquityChart';
 
 const Home = () => {
   const [datas, setDatas] = useState([]);
@@ -20,12 +25,53 @@ const Home = () => {
     try {
       const response = await fetch(`http://127.0.0.1:5000/api/${token}/equity`);
       const res = await response.json();
-      setDatas(res.equity);
+      console.log(res);
+      setDatas(res['equity']);
+
       console.log(res.equity);
     } catch (error) {
       console.log(error);
     }
+
+    const endpoint = `http://localhost:5000/api/equity_date/${token}`;
+    const data = {
+      equity: datas,
+      unix_time: now
+    };
+    const configs = {
+      method: 'POST',
+      mode: 'cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    };
+    const response = await fetch(endpoint, configs);
+    const res = await response.json();
+    console.log(data);
   };
+  // const updatedEquity = datas.toLocaleString();
+
+  let now = moment().format('MM/DD/YYYY');
+
+  // const dateForEquityChart = async () => {
+  //   const endpoint = `http://localhost:5000/api/equity_date/${token}`;
+  //   const data = {
+  //     equity: updatedEquity,
+  //     unix_time: now
+  //   };
+  //   const configs = {
+  //     method: 'POST',
+  //     mode: 'cors',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify(data)
+  //   };
+  //   const response = await fetch(endpoint, configs);
+  //   const res = await response.json();
+  //   console.log(data);
+  // };
+
+  // const sendDateEquity = () => {
+  //   dateForEquityChart();
+  // };
 
   const getTracking = async () => {
     try {
@@ -33,8 +79,8 @@ const Home = () => {
         `http://127.0.0.1:5000/api/gettracking/${token}`
       );
       const res = await response.json();
-      setTrackingData(res.tracking);
-      for (const i of res.tracking) {
+      setTrackingData(res);
+      for (const i of res) {
         console.log(i);
       }
       setToken(token);
@@ -43,10 +89,8 @@ const Home = () => {
     }
   };
 
-  const updatedEquity = datas.toLocaleString();
-
   const watchlist = trackingdata.map((i) => {
-    return <Tracking data={i} ticker={i[0]} />;
+    return <Tracking data={i} ticker={i.ticker} />;
   });
 
   console.log(watchlist);
@@ -60,8 +104,14 @@ const Home = () => {
       <div className="homebalance">
         <h2> Total Equity</h2>
 
-        <p>{'$' + updatedEquity + ''}</p>
+        <p>{'$' + datas + ''}</p>
       </div>
+
+      <div>
+        <HomeEquityChart />
+      </div>
+
+      {/* <button onClick={(e) => dateForEquityChart()}>Logout</button> */}
 
       <div className="home-watchlist-center">
         <table className="tracking-table">
@@ -112,13 +162,24 @@ const Home = () => {
       </div>
       {/* </div> */}
 
-      <div className="homeRow">
-        <div className="homeColumn-transactions">
-          <HomeHistory />
+      <div className="usd-chard-container">
+        <UsdChart />
+      </div>
+
+      {datas && (
+        <div className="position-transactions-container">
+          <div className="homeRow">
+            <div className="homeColumn-transactions">
+              <HomeHistory />
+            </div>
+            <div className="homeColumn-positions">
+              <Portfolio />
+            </div>
+          </div>
         </div>
-        <div className="homeColumn-positions">
-          <Portfolio />
-        </div>
+      )}
+      <div>
+        <StockNews />
       </div>
     </div>
   );
