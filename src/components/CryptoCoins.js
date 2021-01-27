@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CryptoCoinSingle from './CryptoCoinSingle'
 
 const CryptoCoins = () => {
   const [data, setData] = useState([]);
@@ -9,7 +10,7 @@ const CryptoCoins = () => {
 
   const Coins = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/exchange_coins');
+      const response = await fetch('https://cryptostocks.herokuapp.com/api/exchange_coins');
       const res = await response.json();
       setData(res.data);
     } catch (error) {
@@ -17,9 +18,8 @@ const CryptoCoins = () => {
     }
   };
 
-  console.log(data);
+  const coins = data.map((coin) => {
+      return <CryptoCoinSingle name = {coin.CoinName} supply = {coin.MaxSupply}
+  }
 
-  return <div> Hi</div>;
-};
 
-export default CryptoCoins;

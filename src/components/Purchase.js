@@ -7,7 +7,7 @@ const Purchase = () => {
   const [inputAmount, setInputAmount] = useState('');
   const [token, setToken] = useState(sessionStorage.getItem('token') || '');
   const track = async () => {
-    const endpoint = `http://localhost:5000/api/track/${inputTicker}/${token}`;
+    const endpoint = `https://cryptostocks.herokuapp.com/api/track/${inputTicker}/${token}`;
     const data = {
       ticker: inputTicker
     };
@@ -23,7 +23,7 @@ const Purchase = () => {
   };
 
   const Buy = async () => {
-    const endpoint = `http://localhost:5000/api/${token}/buy`;
+    const endpoint = `https://cryptostocks.herokuapp.com/api/${token}/buy`;
     const data = {
       ticker: inputTicker,
       amount: inputAmount,

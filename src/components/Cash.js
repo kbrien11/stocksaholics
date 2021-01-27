@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import StripeCheckoutButton from './StripeButton';
+import { FaRocket, FaMoneyBill } from 'react-icons/fa';
 
 const Cash = () => {
   const [balance, setBalance] = useState([]);
@@ -13,7 +15,7 @@ const Cash = () => {
   const Balance = async () => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/${token}/balance`
+        `https://cryptostocks.herokuapp.com/api/${token}/balance`
       );
       const res = await response.json();
       setBalance(res.balance);
@@ -28,7 +30,7 @@ const Cash = () => {
 
   const Deposit = async () => {
     setDeposit(false);
-    const endpoint = `http://localhost:5000/api/${token}/${inputAmount}`;
+    const endpoint = `https://cryptostocks.herokuapp.com/api/${token}/${inputAmount}`;
     const data = {
       amount: inputAmount
     };
@@ -50,20 +52,93 @@ const Cash = () => {
 
   return (
     <div>
-      <div className="deposit">
-        <p> Would you like to deposit money into your account?</p>
-        <input
-          placeholder="amount"
-          type="text"
-          value={inputAmount}
-          onChange={(e) => setAmount(e.target.value)}
-        />
-        <button type="button" onClick={(e) => Deposit()}>
-          {' '}
-          Increase
-        </button>
-        {inputdeposit && <p> successfully addded!</p>}
+      {/* <div className="card">
+        <div className="deposit-container">
+          <p> Transfer</p>
+          <hr></hr>
+          <h3>
+            {' '}
+            Amount{' '}
+            <span>
+              {' '}
+              <input
+                placeholder="amount"
+                type="text"
+                value={inputAmount}
+                onChange={(e) => setAmount(e.target.value)}
+              />{' '}
+            </span>{' '}
+          </h3>
+          <button type="button" onClick={(e) => Deposit()}>
+            {' '}
+            Instant Transfer
+          </button>{' '}
+          <span>
+            {' '}
+            <StripeCheckoutButton price={inputAmount} />
+          </span>
+          {inputdeposit && <p> successfully addded!</p>}
+        </div>
+      </div> */}
+
+      <div className="deposit-container">
+        <table className="deposit-table">
+          <thead>
+            <tr>
+              <th>
+                {' '}
+                Transfer{' '}
+                <span>
+                  {' '}
+                  <FaMoneyBill />
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                {' '}
+                <h3>
+                  {' '}
+                  Amount{' '}
+                  <span>
+                    {' '}
+                    <input
+                      placeholder="amount"
+                      type="text"
+                      value={inputAmount}
+                      onChange={(e) => setAmount(e.target.value)}
+                    />{' '}
+                  </span>{' '}
+                </h3>
+              </td>
+            </tr>
+          </tbody>
+          <button type="button" onClick={(e) => Deposit()}>
+            {' '}
+            Instant Transfer
+          </button>{' '}
+          <span>
+            {' '}
+            <StripeCheckoutButton price={inputAmount} />
+          </span>
+        </table>
       </div>
+
+      {inputdeposit && (
+        <div className="deposit-success">
+          <p>
+            {' '}
+            successfully addded!{' '}
+            <span>
+              {' '}
+              <FaRocket />{' '}
+            </span>
+          </p>
+        </div>
+      )}
+
       <div className="homebalance">
         <h2> USD Balance</h2>
         <hr color="black"></hr>

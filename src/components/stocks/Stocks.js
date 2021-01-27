@@ -30,7 +30,7 @@ const Stocks = () => {
     try {
       setError(false);
       const response = await fetch(
-        `http://127.0.0.1:5000/api/price/${inputTicker}/${token}`
+        `https://cryptostocks.herokuapp.com/api/price/${inputTicker}/${token}`
       );
       const res = await response.json();
       if (res.current_price) {
@@ -56,7 +56,7 @@ const Stocks = () => {
   });
 
   const track = async () => {
-    const endpoint = `http://localhost:5000/api/track/${inputTicker}/${token}`;
+    const endpoint = `https://cryptostocks.herokuapp.com/api/track/${inputTicker}/${token}`;
     const data = {
       ticker: inputTicker
     };
@@ -86,7 +86,7 @@ const Stocks = () => {
   };
 
   const confirmBuy = async () => {
-    const endpoint = `http://localhost:5000/api/${token}/buy`;
+    const endpoint = `https://cryptostocks.herokuapp.com/api/${token}/buy`;
     const data = {
       ticker: inputTicker,
       amount: inputAmount,
@@ -109,7 +109,7 @@ const Stocks = () => {
   };
 
   const confirmSell = async () => {
-    const endpoint = `http://localhost:5000/api/${token}/sell`;
+    const endpoint = `https://cryptostocks.herokuapp.com/api/${token}/sell`;
     const data = {
       ticker: inputTicker,
       amount: inputAmount,
@@ -136,7 +136,7 @@ const Stocks = () => {
   const Balance = async () => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/${token}/balance`
+        `https://cryptostocks.herokuapp.com/api/${token}/balance`
       );
       const res = await response.json();
       setBalance(res.balance);
@@ -148,7 +148,7 @@ const Stocks = () => {
   const currentShares = async () => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/num/${token}/${inputTicker}`
+        `https://cryptostocks.herokuapp.com/api/num/${token}/${inputTicker}`
       );
       const res = await response.json();
       setShares(res.total);
@@ -161,13 +161,13 @@ const Stocks = () => {
   console.log(shares);
   const companyLogo = <img className="stock-logo" src={image}></img>;
 
-  const currentBalance = balance.toLocaleString();
+  // const currentBalance = balance.toLocaleString();
 
   const total = balance / data[2];
   const total_updated = total.toFixed(0);
   return (
     <div>
-      <div className="stock-page-balance">{currentBalance}</div>
+      <div className="stock-page-balance">{balance}</div>
       <div className="rowTwo">
         {output.length > 0 && (
           <div class="otherColumn">
@@ -261,7 +261,7 @@ const Stocks = () => {
             />
           )}
           <br />
-          <div>{buy && <h4> You have {'$' + currentBalance} to spend</h4>}</div>
+          <div>{buy && <h4> You have {'$' + balance} to spend</h4>}</div>
           <div className="shares">
             {buy && (
               <h4>

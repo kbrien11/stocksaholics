@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SearchContainer from './SearchContainer';
+// import SearchContainer from './SearchContainer';
 
 const Navbar = () => {
   return (
@@ -11,7 +11,7 @@ const Navbar = () => {
             <span className="text-primary"> Stocks</span>Aholics
           </Link>
         </h2>
-        <SearchContainer />
+        {/* <SearchContainer /> */}
       </div>
       <nav className="navbar-links">
         <ul>

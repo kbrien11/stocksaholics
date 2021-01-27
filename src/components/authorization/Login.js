@@ -13,7 +13,7 @@ const Login = (props) => {
   const signin = async () => {
     setIsError(false);
     setToken('');
-    const endpoint = 'http://127.0.0.1:5000/api/login';
+    const endpoint = 'https://cryptostocks.herokuapp.com/api/login';
     const data = {
       email: inputEmail,
       password: inputPassword

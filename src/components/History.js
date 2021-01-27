@@ -11,7 +11,9 @@ const History = (props) => {
 
   const Trade = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:5000/api/${token}/trades`);
+      const response = await fetch(
+        `https://cryptostocks.herokuapp.com/api/${token}/trades`
+      );
       const res = await response.json();
       setDatas(res);
       console.log(res);
@@ -32,6 +34,7 @@ const History = (props) => {
         equity={i.equity}
         number_shares={i.number_shares}
         unix_time={i.unix_time}
+        trade_type={i.trade_type}
       />
     );
   });

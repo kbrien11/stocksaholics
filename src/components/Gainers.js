@@ -12,7 +12,7 @@ const Gainers = (props) => {
   const TopGainers = async () => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/top_gainers/${token}`
+        `https://cryptostocks.herokuapp.com/api/top_gainers/${token}`
       );
       const res = await response.json();
       console.log(res);

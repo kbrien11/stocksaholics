@@ -10,7 +10,9 @@ const CryptoExchangeData = () => {
 
   const exchangeData = async () => {
     try {
-      const response = await fetch('http://127.0.0.1:5000/api/exchange_data');
+      const response = await fetch(
+        'https://cryptostocks.herokuapp.com/api/exchange_data'
+      );
       const res = await response.json();
       setData(res.data);
     } catch (error) {

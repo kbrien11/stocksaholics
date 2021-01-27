@@ -3,11 +3,7 @@
 @import './_navbar.scss';
 @import './_landingPage.scss';
 @import './_stocks.scss';
-<<<<<<< HEAD
 // @import '../components/common/Accordion.scss';
-=======
-@import '../components/common/Accordion.scss';
->>>>>>> abac3e5d5b30ee6661144c959cbe87bc5130c270
 
 .bodypurshase {
   background-color: inherit;
@@ -161,9 +157,66 @@
   margin-bottom: 10px;
   border-radius: 10px 10px 10px 10px;
 }
-.trade-history-container {
-  margin-left: 35%;
+
+.deposit-table {
+  border-collapse: collapse;
+  margin: auto;
+  min-height: 250px;
+  font-size: 0.9em;
+  max-width: 300px;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
+
+.deposit-table thead tr {
+  background-color: inherit;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+.deposit-table th,
+.deposit-table td {
+  padding: 20px 15px;
+  margin-bottom: 20px;
+}
+.deposit-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.deposit-container {
+  margin: auto;
+  margin-top: 5%;
+}
+.deposit-table input {
+  background-color: whitesmoke;
+  width: 100px;
+  height: 33px;
+  padding-left: 10px;
+  margin-left: 5px;
+  border-color: inherit;
+}
+.deposit-table input:focus {
+  background-color: wheat;
+  border-color: yellowgreen;
+  border-style: solid 3px;
+}
+.deposit-table button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100px;
+  height: 33px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+.deposit-success p {
+  margin-top: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  color: rebeccapurple;
+}
+
 .trades h3 {
   float: left;
   font-size: 14px;
@@ -1445,10 +1498,13 @@ overflow: hidden; */
 .losers-table tbody tr {
   border-bottom: 1px solid #dddddd;
 }
+.trade-history-container {
+  margin-top: 5%;
+}
 
 .trade-history-table {
   border-collapse: collapse;
-  margin: 25px 0;
+  margin: auto;
 
   font-size: 0.9em;
   min-width: 500px;

@@ -12,7 +12,7 @@ const UsdChart = () => {
   const Chart = async () => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/${token}/usd_chart`
+        `https://cryptostocks.herokuapp.com/api/${token}/usd_chart`
       );
       const res = await response.json();
       if (res.USD) {

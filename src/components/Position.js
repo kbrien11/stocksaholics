@@ -10,7 +10,9 @@ const Pos = ({ ticker, numberShares, equity }) => {
 
   const companyLogo = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:5000/api/logo/${ticker}`);
+      const response = await fetch(
+        `https://cryptostocks.herokuapp.com/api/logo/${ticker}`
+      );
       const res = await response.json();
       if (res.logo) {
         setImage(res.logo);
@@ -32,6 +34,7 @@ const Pos = ({ ticker, numberShares, equity }) => {
         {equity && <h5> Total Equity: {'$' + equity}</h5>}
         <p> {numberShares} Total Share(s)</p>
       </div>
+      )
     </div>
   );
 };

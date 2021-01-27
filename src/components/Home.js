@@ -23,7 +23,9 @@ const Home = () => {
 
   const Equity = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:5000/api/${token}/equity`);
+      const response = await fetch(
+        `https://cryptostocks.herokuapp.com/api/${token}/equity`
+      );
       const res = await response.json();
       console.log(res);
       setDatas(res['equity']);
@@ -33,7 +35,7 @@ const Home = () => {
       console.log(error);
     }
 
-    const endpoint = `http://localhost:5000/api/equity_date/${token}`;
+    const endpoint = `https://cryptostocks.herokuapp.com/api/equity_date/${token}`;
     const data = {
       equity: datas,
       unix_time: now
@@ -76,7 +78,7 @@ const Home = () => {
   const getTracking = async () => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/gettracking/${token}`
+        `https://cryptostocks.herokuapp.com/api/gettracking/${token}`
       );
       const res = await response.json();
       setTrackingData(res);

@@ -23,7 +23,7 @@ const Tracking = ({ ticker }) => {
   const StockPrice = async () => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/prices/${ticker}/${token}`
+        `https://cryptostocks.herokuapp.com/api/prices/${ticker}/${token}`
       );
       const res = await response.json();
       console.log(res);
@@ -41,13 +41,13 @@ const Tracking = ({ ticker }) => {
   const TrackingChart = async () => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/tracking_chart/${ticker}/${token}`
+        `https://cryptostocks.herokuapp.com/api/tracking_chart/${ticker}/${token}`
       );
       const res = await response.json();
       console.log(res);
 
-      if (res.tracker) {
-        setTrackingChart(res.tracker);
+      if (res) {
+        setTrackingChart(res);
         console.log(res.tracker);
       }
     } catch (error) {

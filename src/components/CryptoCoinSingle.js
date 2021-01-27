@@ -33,7 +33,7 @@ const CryptoCoinSingle = ({
   const Chart = async () => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/crypto_Chart/${symbol}/${token}`
+        `https://cryptostocks.herokuapp.com/api/crypto_Chart/${symbol}/${token}`
       );
       const res = await response.json();
       setChartData(res.chart);
@@ -46,7 +46,7 @@ const CryptoCoinSingle = ({
   const WeeklyChart = async () => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/weekly_crypto_chart/${symbol}`
+        `https://cryptostocks.herokuapp.com/api/weekly_crypto_chart/${symbol}`
       );
       const res = await response.json();
       setSevenDayCryptoChart(res.sevenDayChart);

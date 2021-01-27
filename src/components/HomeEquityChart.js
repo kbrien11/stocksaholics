@@ -12,7 +12,7 @@ const HomeEquityChart = () => {
   const Chart = async () => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:5000/api/equity_chart/${token}`
+        `https://cryptostocks.herokuapp.com/api/equity_chart/${token}`
       );
       const res = await response.json();
       if (res) {

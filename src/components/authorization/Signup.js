@@ -6,9 +6,10 @@ function SignUp() {
   const [inputPassword, setInputPassword] = useState('');
   const [inputFirst_name, setFirstName] = useState('');
   const [inputLast_name, setLastName] = useState('');
+  const [signedIn, setSignedIn] = useState(false);
 
   const sendData = async () => {
-    const endpoint = 'http://localhost:5000/api/create_user';
+    const endpoint = 'https://cryptostocks.herokuapp.com/api/create_user';
     const data = {
       email: inputEmail,
       password: inputPassword,
@@ -23,6 +24,9 @@ function SignUp() {
     };
     const response = await fetch(endpoint, configs);
     const res = await response.json();
+    if (res) {
+      setSignedIn(true);
+    }
     console.log(res);
   };
 
@@ -30,6 +34,9 @@ function SignUp() {
     <div className="registerimage">
       <div className="register-container"></div>
       <div className="register">
+        {signedIn && (
+          <h5 className="successful-login"> Successfully resistered!!</h5>
+        )}
         <h3>Register</h3>
         <label>First Name</label> <br />
         <input

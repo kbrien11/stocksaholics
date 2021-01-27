@@ -5,13 +5,11 @@ const Trades = ({ trade_type, ticker, number_shares, unix_time, equity }) => {
     <div className="trade-content">
       <div class="tradeequity">
         <h3>
-          {
-            (trade_type = 'Market Deposit' ? (
-              <div className="trades-buy">{'+' + '$' + equity}</div>
-            ) : (
-              <div className="trades-sell"> {'-' + '$' + equity}</div>
-            ))
-          }
+          {trade_type === 'Market Deposit' ? (
+            <div className="trades-buy">{'+' + '$' + equity}</div>
+          ) : (
+            <div className="trades-sell"> {'-' + '$' + equity}</div>
+          )}
         </h3>
 
         <p>{number_shares} Shares</p>

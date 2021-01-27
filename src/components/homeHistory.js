@@ -11,7 +11,9 @@ const HomeHistory = () => {
 
   const TradeHistory = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:5000/api/${token}/recent`);
+      const response = await fetch(
+        `https://cryptostocks.herokuapp.com/api/${token}/recent`
+      );
       const res = await response.json();
       setTrades(res);
       console.log(res);
@@ -23,11 +25,6 @@ const HomeHistory = () => {
   const limit_trades = trades.map((trade) => {
     return (
       <Trades
-<<<<<<< HEAD
-        key={trade['pk']}
-=======
-        key={trade[2]}
->>>>>>> abac3e5d5b30ee6661144c959cbe87bc5130c270
         datas={trade}
         numberShares={trade['number_shares']}
         ticker={trade['ticker']}
